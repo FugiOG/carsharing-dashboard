@@ -1,0 +1,44 @@
+.wrapper {
+	position: relative;
+	display: inline-flex;
+
+	.form {
+		position: absolute;
+		padding: 16px;
+		right: 6px;
+		width: 200px;
+		top: calc(100% + 1.4rem);
+		z-index: 20;
+		background: white;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		.register {
+			display: block;
+			text-align: center;
+			width: 100%;
+			font-size: 0.7rem;
+			color: #5c5b5b;
+		}
+	}
+	.button {
+		background: white;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: x-large;
+		box-shadow: 0 4px 10px rgba(45, 8, 125, 0.2);
+		padding: 6px;
+		color: #353538;
+		transition: box-shadow 0.2s ease-in-out;
+		&:hover {
+			box-shadow: 0 4px 16px rgba(45, 8, 125, 0.3);
+		}
+	}
+}
+
+.btn-submit {
+	margin-top: 20px;
+	margin-bottom: 6px;
+	text-align: center;
+}

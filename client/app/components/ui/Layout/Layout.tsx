@@ -11,7 +11,7 @@ const Layout: FC<PropsWithChildren<IMeta>> = ({ children, ...meta }) => {
 			<Meta {...meta} />
 			<div>
 				<Header />
-				<main>{children}</main>
+				<main style={{ padding: '16px' }}>{children}</main>
 			</div>
 		</>
 	)

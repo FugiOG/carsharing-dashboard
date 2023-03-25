@@ -1,0 +1,23 @@
+.input {
+	position: relative;
+	display: block;
+	margin-bottom: 16px;
+	background-color: white;
+
+	> input {
+		padding-bottom: 8px;
+		width: 100%;
+
+		&::placeholder {
+			color: #797979;
+		}
+	}
+}
+
+.error {
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 100%;
+	font-size: 0.75rem;
+}
