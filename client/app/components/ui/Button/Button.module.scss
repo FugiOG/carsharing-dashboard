@@ -1,11 +1,12 @@
 .button {
 	background-color: var(--primary);
 	color: #fff;
-	border-radius: 0.65rem /* 10.4px */;
+	border-radius: 0.56rem;
 	transition: background-color 0.3s ease-in-out;
-	padding: 5px 10px;
-}
+	padding: 6px 16px;
+	font-size: 0.95rem;
 
-.button:hover {
-	background-color: #5960dd;
+	&:hover {
+		background-color: #5960dd;
+	}
 }

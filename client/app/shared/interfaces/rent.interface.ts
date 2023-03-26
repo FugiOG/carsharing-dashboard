@@ -1,7 +1,7 @@
 import { ICar } from './car.interface'
 import { IUser } from './user.interface'
 
-export interface IRentalList {
+export interface IRent {
 	id: number
 	user: IUser
 	car: ICar

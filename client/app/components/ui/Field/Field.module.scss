@@ -1,13 +1,15 @@
+@import '../../../assets/styles/mixins.scss';
 .input {
 	position: relative;
 	display: block;
-	margin-bottom: 16px;
-	background-color: white;
+	margin-bottom: 20px;
 
 	> input {
-		padding-bottom: 8px;
 		width: 100%;
-
+		padding: 8px;
+		background-color: white;
+		border-radius: 10px;
+		@include shadow();
 		&::placeholder {
 			color: #797979;
 		}
@@ -16,8 +18,10 @@
 
 .error {
 	position: absolute;
-	bottom: -5px;
+	bottom: -16px;
 	left: 0;
 	width: 100%;
-	font-size: 0.75rem;
+	font-size: 0.6rem;
+	color: var(--primary);
+	font-weight: 600;
 }

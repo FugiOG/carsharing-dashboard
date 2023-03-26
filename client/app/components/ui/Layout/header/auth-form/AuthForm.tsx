@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { FaRegUserCircle } from 'react-icons/fa'
@@ -8,6 +9,8 @@ import UserAvatar from '@/components/ui/user-avatar/UserAvatar'
 
 import { useAuth } from '@/hooks/useAuth'
 import { useOutside } from '@/hooks/useOutside'
+
+import { FADE_IN, menuAnimation } from '@/utils/animation/fade'
 
 import styles from './AuthForm.module.scss'
 import { IAuthFields } from './auth-form.interface'
@@ -22,6 +25,7 @@ const AuthForm: FC = () => {
 		register,
 		formState: { errors },
 		handleSubmit,
+		reset,
 	} = useForm<IAuthFields>({ mode: 'onChange' })
 
 	const { user, setUser } = useAuth()
@@ -34,17 +38,27 @@ const AuthForm: FC = () => {
 				name: 'admin',
 				avatarPath: '/avatar.png',
 			})
+		reset()
+		setIsShow(false)
 	}
 	return (
 		<div className={styles.wrapper} ref={ref}>
 			{user ? (
-				<UserAvatar avatarPath={user.avatarPath || ''} />
+				<UserAvatar
+					title="dashboard"
+					link="/dashboard"
+					avatarPath={user.avatarPath || ''}
+				/>
 			) : (
 				<button onClick={() => setIsShow(!isShow)} className={styles.button}>
 					<FaRegUserCircle />
 				</button>
 			)}
-			{isShow && (
+			<motion.div
+				initial={false}
+				animate={isShow ? 'open' : 'closed'}
+				variants={menuAnimation}
+			>
 				<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 					<Field
 						{...register('email', {
@@ -67,7 +81,7 @@ const AuthForm: FC = () => {
 						})}
 						type="password"
 						placeholder="Password"
-						error={errors.email}
+						error={errors.password}
 					/>
 					<div className={styles['btn-submit']}>
 						<Button onClick={() => setType('login')}>Login</Button>
@@ -79,7 +93,7 @@ const AuthForm: FC = () => {
 						Register
 					</button>
 				</form>
-			)}
+			</motion.div>
 		</div>
 	)
 }
