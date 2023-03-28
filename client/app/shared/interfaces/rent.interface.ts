@@ -5,7 +5,8 @@ export interface IRent {
 	id: number
 	user: IUser
 	car: ICar
-	issueDate: number
-	returnDate: number
+	rating: number
+	issueDate: Date
+	returnDate: Date
 	cost: number
 }

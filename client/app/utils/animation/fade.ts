@@ -9,11 +9,20 @@ export const FADE_IN: MotionProps = {
 
 export const menuAnimation: Variants = {
 	open: {
+		// maxHeight: '100px',
+		// translateY: '100px',
+		// height: '500px',
 		opacity: 1,
+		// height: 0,
+		// overflow: 'hidden',
 		transition: { type: 'keyframes', duration: 0.2 },
 	},
 	closed: {
+		// maxHeight: 0,
 		opacity: 0,
+		// height: 0,
+		// height: '100%',
+		// overflow: 'hidden',
 		transition: { type: 'keyframes', duration: 0.2 },
 	},
 }

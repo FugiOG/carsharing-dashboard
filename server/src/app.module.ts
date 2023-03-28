@@ -4,9 +4,9 @@ import { SequelizeModule } from '@nestjs/sequelize/dist'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { getSequelizeConfig } from './config/db.config'
-import { UserModule } from './user/user.module';
-import { CarModule } from './car/car.module';
-import { RentModule } from './rent/rent.module';
+import { UserModule } from './user/user.module'
+import { CarModule } from './car/car.module'
+import { RentModule } from './rent/rent.module'
 
 @Module({
 	imports: [

@@ -9,14 +9,15 @@ import { CarModel } from 'src/car/car.model'
 import { UserModel } from 'src/user/user.model'
 
 @Table({ tableName: 'Rent', deletedAt: false, version: false })
-export class RentModel extends Model {
-	// user: IUser
-	// car: ICar
+export class RentModel extends Model<RentModel> {
 	@Column
 	issueDate: Date
 
 	@Column
 	returnDate: Date
+
+	@Column({ allowNull: true, defaultValue: 0 })
+	rating: number
 
 	@Column
 	cost: number

@@ -2,17 +2,14 @@ import { Column, Model, Table, HasMany } from 'sequelize-typescript'
 import { RentModel } from 'src/rent/rent.model'
 
 @Table({ tableName: 'Car', deletedAt: false, version: false })
-export class CarModel extends Model {
+export class CarModel extends Model<CarModel> {
 	@Column
 	brand: string
 
-	@Column({ allowNull: true })
-	rating: number
-
-	@Column
+	@Column({ defaultValue: 0 })
 	fullPrice: number
 
-	@Column
+	@Column({ defaultValue: 0 })
 	rentalPrice: number
 
 	@Column({ field: 'image_path' })
