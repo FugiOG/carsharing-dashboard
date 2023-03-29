@@ -11,10 +11,10 @@ import { UserModel } from 'src/user/user.model'
 @Table({ tableName: 'Rent', deletedAt: false, version: false })
 export class RentModel extends Model<RentModel> {
 	@Column
-	issueDate: Date
+	issueDate: string
 
 	@Column
-	returnDate: Date
+	returnDate: string
 
 	@Column({ allowNull: true, defaultValue: 0 })
 	rating: number

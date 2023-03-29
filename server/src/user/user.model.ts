@@ -13,6 +13,9 @@ export class UserModel extends Model<UserModel, UserModel> {
 	@Column
 	name: string
 
+	@Column({ defaultValue: false })
+	isAdmin: boolean
+
 	@Column({ unique: true })
 	email: string
 

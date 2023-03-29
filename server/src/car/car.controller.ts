@@ -11,7 +11,7 @@ import {
 	UsePipes,
 	ValidationPipe,
 } from '@nestjs/common'
-import { Auth } from 'src/user/decorations/auth.decorator'
+import { Auth } from 'src/auth/decorators/auth.decorator'
 import { CarService } from './car.service'
 import { CarDto } from './dto/car.dto'
 
@@ -20,19 +20,21 @@ export class CarController {
 	constructor(private readonly carService: CarService) {}
 
 	@Get()
+	@Auth()
 	@HttpCode(200)
 	async getAll(@Query('searchTerm') searchTerm?: string) {
 		return this.carService.getAll(searchTerm)
 	}
 
 	@Get(':id')
+	@Auth()
 	async getCar(@Param('id') id: string) {
 		return this.carService.byId(id)
 	}
 
 	@HttpCode(200)
 	@Post()
-	@Auth()
+	@Auth('admin')
 	async create() {
 		return this.carService.create()
 	}
@@ -40,14 +42,14 @@ export class CarController {
 	@UsePipes(new ValidationPipe())
 	@Put(':id')
 	@HttpCode(200)
-	@Auth()
+	@Auth('admin')
 	async update(@Param('id') id: string, @Body() dto: CarDto) {
 		return this.carService.update(id, dto)
 	}
 
 	@Delete(':id')
 	@HttpCode(200)
-	@Auth()
+	@Auth('admin')
 	async delete(@Param('id') id: string) {
 		return this.carService.delete(id)
 	}

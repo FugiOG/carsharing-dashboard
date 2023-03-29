@@ -1,6 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/sequelize'
 import { WhereOptions, Op } from 'sequelize'
+import { RentModel } from 'src/rent/rent.model'
+import { UserModel } from 'src/user/user.model'
 import { CarModel } from './car.model'
 import { CarDto } from './dto/car.dto'
 
@@ -13,7 +15,7 @@ export class CarService {
 	async byId(id: string) {
 		const car = await this.carModel.findOne({
 			where: { id },
-			include: [{ all: true }],
+			include: [{ model: RentModel, include: [UserModel] }],
 		})
 		if (!car) throw new NotFoundException('Car not found')
 		return car

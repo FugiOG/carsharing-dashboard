@@ -1,29 +1,32 @@
 import {
 	Body,
 	Controller,
+	Get,
 	HttpCode,
+	Param,
 	Post,
+	Query,
 	UsePipes,
 	ValidationPipe,
 } from '@nestjs/common'
-import { AuthDto } from './dto/auth.dto'
+import { Auth } from 'src/auth/decorators/auth.decorator'
 import { UserService } from './user.service'
 
 @Controller('user')
 export class UserController {
 	constructor(private readonly userService: UserService) {}
 
-	@UsePipes(new ValidationPipe())
+	@Get()
+	@Auth('admin')
 	@HttpCode(200)
-	@Post('register')
-	async register(@Body() dto: AuthDto) {
-		return this.userService.register(dto)
+	async getAll(@Query('searchTerm') searchTerm?: string) {
+		return this.userService.getAll(searchTerm)
 	}
 
-	@UsePipes(new ValidationPipe())
+	@Get(':id')
+	@Auth('admin')
 	@HttpCode(200)
-	@Post('login')
-	async login(@Body() dto: AuthDto) {
-		return this.userService.login(dto)
+	async getUser(@Param('id') id: string) {
+		return this.userService.byId(id)
 	}
 }
