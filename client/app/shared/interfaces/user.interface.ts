@@ -5,5 +5,12 @@ export interface IUser {
 	name: string
 	email: string
 	avatarPath: string
+	city: string
+	isAdmin: boolean
 	rents?: IRent[]
+}
+
+export interface IAuthResponse {
+	user: IUser
+	accessToken: string
 }

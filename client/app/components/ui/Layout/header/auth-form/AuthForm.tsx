@@ -1,3 +1,4 @@
+import { useMutation } from '@tanstack/react-query'
 import { motion } from 'framer-motion'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -9,6 +10,10 @@ import UserAvatar from '@/components/ui/user-avatar/UserAvatar'
 
 import { useAuth } from '@/hooks/useAuth'
 import { useOutside } from '@/hooks/useOutside'
+
+import { IAuthResponse } from '@/shared/interfaces/user.interface'
+
+import { AuthService } from '@/services/auth/auth.service'
 
 import { FADE_IN, menuAnimation } from '@/utils/animation/fade'
 
@@ -30,16 +35,33 @@ const AuthForm: FC = () => {
 
 	const { user, setUser } = useAuth()
 
+	const { mutate: loginSync } = useMutation(
+		['login'],
+		(data: IAuthFields) => AuthService.login(data.email, data.password),
+		{
+			onSuccess: (data) => {
+				if (setUser) setUser(data.user)
+				setIsShow(false)
+				reset()
+			},
+		}
+	)
+
+	const { mutate: registerSync } = useMutation(
+		['register'],
+		(data: IAuthFields) => AuthService.register(data.email, data.password),
+		{
+			onSuccess: (data) => {
+				if (setUser) setUser(data.user)
+				setIsShow(false)
+				reset()
+			},
+		}
+	)
+
 	const onSubmit: SubmitHandler<IAuthFields> = (data) => {
-		if (type === 'login')
-			setUser({
-				id: 1,
-				email: 'test@test.com',
-				name: 'admin',
-				avatarPath: '/avatar.png',
-			})
-		reset()
-		setIsShow(false)
+		if (type === 'login') loginSync(data)
+		if (type === 'register') registerSync(data)
 	}
 	return (
 		<div className={styles.wrapper} ref={ref}>
