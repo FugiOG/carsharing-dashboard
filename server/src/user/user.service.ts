@@ -43,4 +43,8 @@ export class UserService {
 			...dto,
 		})
 	}
+
+	async delete(id: string) {
+		return this.userModel.destroy({ where: { id } })
+	}
 }

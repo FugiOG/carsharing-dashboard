@@ -16,6 +16,5 @@ export class UserDto {
 	@IsString()
 	avatarPath?: string
 
-	@IsBoolean()
 	isAdmin?: boolean
 }

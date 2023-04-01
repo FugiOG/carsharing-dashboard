@@ -9,6 +9,9 @@ import { AuthDto } from './dto/auth.dto'
 import { hash, genSalt, compare } from 'bcryptjs'
 import { faker } from '@faker-js/faker'
 import { JwtService } from '@nestjs/jwt'
+import { FileResponse } from './types/file.inteface'
+import { path } from 'app-root-path'
+import { writeFile } from 'fs-extra'
 
 @Injectable()
 export class AuthService {
@@ -44,6 +47,16 @@ export class AuthService {
 			user: this.returnUserFields(user),
 			accessToken: await this.issueTokenPair(String(user.id)),
 		}
+	}
+
+	async saveFiles(file: any): Promise<FileResponse> {
+		const uploadFolder = `${path}/uploads/images`
+		await writeFile(`${uploadFolder}/${file.originalname}`, file.buffer)
+		const res: FileResponse = {
+			url: `/uploads/images/${file.originalname}`,
+			name: file.originalname,
+		}
+		return res
 	}
 
 	async validateUser(dto: AuthDto) {
