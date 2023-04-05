@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import Sidebar from '../sidebar/Sidebar'
+
 import styles from './Header.module.scss'
 import Logo from './Logo'
 import AuthForm from './auth-form/AuthForm'

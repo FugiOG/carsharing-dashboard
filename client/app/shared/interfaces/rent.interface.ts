@@ -3,6 +3,8 @@ import { IUser } from './user.interface'
 
 export interface IRent {
 	id: number
+	userId: string
+	carId: string
 	user: IUser
 	car: ICar
 	rating: number
@@ -10,3 +12,9 @@ export interface IRent {
 	returnDate: Date
 	cost: number
 }
+
+export interface RentDto
+	extends Pick<
+		IRent,
+		'issueDate' | 'returnDate' | 'rating' | 'cost' | 'userId' | 'carId'
+	> {}

@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module'
 import { CarModule } from './car/car.module'
 import { RentModule } from './rent/rent.module'
 import { AuthModule } from './auth/auth.module';
+import { MediaModule } from './media/media.module';
 
 @Module({
 	imports: [
@@ -21,6 +22,7 @@ import { AuthModule } from './auth/auth.module';
 		CarModule,
 		RentModule,
 		AuthModule,
+		MediaModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],

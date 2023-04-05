@@ -20,6 +20,20 @@ import { UserService } from './user.service'
 export class UserController {
 	constructor(private readonly userService: UserService) {}
 
+	@Get('profile')
+	@Auth()
+	async getProfile(@User('id') id: string) {
+		return this.userService.byId(id)
+	}
+
+	@UsePipes(new ValidationPipe())
+	@Put('profile')
+	@HttpCode(200)
+	@Auth()
+	async updateProfile(@User('id') id: string, @Body() dto: UserDto) {
+		return this.userService.update(id, dto)
+	}
+
 	@Get()
 	@Auth('admin')
 	@HttpCode(200)
@@ -42,7 +56,7 @@ export class UserController {
 	}
 
 	@Put()
-	@Auth()
+	@Auth('admin')
 	@HttpCode(200)
 	async updateUser(@User('id') userId: string, @Body() dto: UserDto) {
 		return this.userService.update(userId, dto)

@@ -26,3 +26,39 @@ export const menuAnimation: Variants = {
 		transition: { type: 'keyframes', duration: 0.2 },
 	},
 }
+
+export const sidebarAnimation: Variants = {
+	open: {
+		// maxHeight: '100px',
+		// translateY: '100px',
+		translateX: 0,
+		// height: '500px',
+		// opacity: 1,
+		// height: 0,
+		// overflow: 'hidden',
+		transition: { type: 'keyframes', duration: 0.2 },
+	},
+	closed: {
+		// maxHeight: 0,
+		// opacity: 0,
+		translateX: '-100%',
+		// height: 0,
+		// height: '100%',
+		// overflow: 'hidden',
+		transition: { type: 'keyframes', duration: 0.2 },
+	},
+}
+
+export const sidebarButtonAnimation: Variants = {
+	left: {
+		transform: 'rotate(0) translate(0)',
+		transformOrigin: 'center',
+
+		transition: { type: 'keyframes', duration: 0.2 },
+	},
+	right: {
+		transform: 'rotate(180deg) translate(-50%)',
+		transformOrigin: 'center',
+		transition: { type: 'keyframes', duration: 0.2 },
+	},
+}

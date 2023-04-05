@@ -2,9 +2,11 @@ import {
 	Body,
 	Controller,
 	Delete,
+	Get,
 	HttpCode,
 	Param,
 	Post,
+	Query,
 	UsePipes,
 	ValidationPipe,
 } from '@nestjs/common'
@@ -15,6 +17,13 @@ import { RentService } from './rent.service'
 @Controller('rent')
 export class RentController {
 	constructor(private readonly rentService: RentService) {}
+
+	@Get()
+	@Auth('admin')
+	@HttpCode(200)
+	async getAll(@Query('searchTerm') searchTerm?: string) {
+		return this.rentService.getAll(searchTerm)
+	}
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)

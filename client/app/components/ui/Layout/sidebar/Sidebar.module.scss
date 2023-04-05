@@ -1,0 +1,30 @@
+.wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 30;
+	height: 100vw;
+
+	.sidebar {
+		position: relative;
+		background-color: #fff;
+		height: 100vw;
+		padding: 18px 26px;
+		border-right: 1px solid #ccc;
+		.btn-wrapper {
+			position: absolute;
+			top: 32px;
+			right: -9px;
+
+			.btn {
+				display: block;
+				color: var(--primary);
+				font-weight: 700;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				padding: 0 4px;
+				background-color: #fff;
+			}
+		}
+	}
+}

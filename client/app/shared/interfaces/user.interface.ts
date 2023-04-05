@@ -14,3 +14,8 @@ export interface IAuthResponse {
 	user: IUser
 	accessToken: string
 }
+
+export interface UserDto
+	extends Pick<IUser, 'name' | 'email' | 'avatarPath' | 'city' | 'isAdmin'> {
+	password?: string
+}

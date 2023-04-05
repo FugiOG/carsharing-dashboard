@@ -8,3 +8,6 @@ export interface ICar {
 	imagePath: string
 	rents?: IRent[]
 }
+
+export interface CarDto
+	extends Pick<ICar, 'brand' | 'fullPrice' | 'rentalPrice' | 'imagePath'> {}

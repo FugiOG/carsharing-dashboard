@@ -1,9 +1,9 @@
 import {
 	Body,
 	Controller,
+	HttpCode,
 	Delete,
 	Get,
-	HttpCode,
 	Param,
 	Post,
 	Put,
@@ -27,6 +27,7 @@ export class CarController {
 	}
 
 	@Get(':id')
+	@HttpCode(200)
 	@Auth()
 	async getCar(@Param('id') id: string) {
 		return this.carService.byId(id)

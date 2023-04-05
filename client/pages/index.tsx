@@ -1,17 +1,34 @@
+import { GetStaticProps, NextPage } from 'next'
 import { Montserrat } from 'next/font/google'
-import Head from 'next/head'
-import Image from 'next/image'
 
+import Home from '@/components/screens/home/Home'
+import { IHome } from '@/components/screens/home/home.interface'
 import Layout from '@/components/ui/Layout/Layout'
+
+import { CarService } from '@/services/car.service'
 
 import styles from '@/styles/Home.module.css'
 
-const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'] })
-
-export default function Home() {
-	return (
-		<div className={montserrat.className}>
-			<Layout title="Carsharing">Главная</Layout>
-		</div>
-	)
+const HomePage: NextPage<IHome> = (props) => {
+	return <Home {...props} />
 }
+
+export const getStaticProps: GetStaticProps<IHome> = async () => {
+	try {
+		const { data: cars } = await CarService.getAll()
+		return {
+			props: {
+				cars,
+			},
+			revalidate: 60,
+		}
+	} catch (error) {
+		return {
+			props: {
+				cars: [],
+			},
+		}
+	}
+}
+
+export default HomePage
