@@ -11,9 +11,11 @@ const Layout: FC<PropsWithChildren<IMeta>> = ({ children, ...meta }) => {
 		<>
 			<Meta {...meta} />
 			<div>
-				<Sidebar />
 				<Header />
-				<main style={{ padding: '16px' }}>{children}</main>
+				<div style={{ display: 'flex', height: '100vh' }}>
+					<Sidebar />
+					<main style={{ padding: '16px', marginTop: '76px' }}>{children}</main>
+				</div>
 			</div>
 		</>
 	)

@@ -24,6 +24,14 @@
 			width: 100%;
 			padding: 8px 12px;
 			cursor: pointer;
+			border-radius: 8px;
+
+			&.active {
+				div {
+					color: var(--primary);
+				}
+				background-color: #6067ec30;
+			}
 
 			div {
 				font-weight: 500;

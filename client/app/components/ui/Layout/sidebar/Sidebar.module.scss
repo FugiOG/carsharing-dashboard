@@ -1,16 +1,16 @@
 .wrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 30;
-	height: 100vw;
+	padding-right: 9px;
+	height: 100%;
+	margin-right: 9px;
 
 	.sidebar {
 		position: relative;
 		background-color: #fff;
-		height: 100vw;
+		height: 100%;
+
 		padding: 18px 26px;
 		border-right: 1px solid #ccc;
+		width: 233px;
 		.btn-wrapper {
 			position: absolute;
 			top: 32px;

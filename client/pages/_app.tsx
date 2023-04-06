@@ -4,6 +4,8 @@ import { Montserrat } from 'next/font/google'
 import AuthProvider from 'providers/auth-provider/AuthProvider'
 import { Fragment } from 'react'
 
+import Layout from '@/components/ui/Layout/Layout'
+
 import '@/styles/globals.scss'
 
 const queryClient = new QueryClient({

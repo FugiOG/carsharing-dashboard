@@ -11,17 +11,18 @@ import Logo from '../header/Logo'
 import styles from './Sidebar.module.scss'
 import { MenuData } from './menu.data'
 import Menu from './menu/Menu'
+import OtherMenu from './other/OtherMenu'
 
 const Sidebar: FC = () => {
 	const [isShow, setIsShow] = useState(true)
 	// if (!isShow) return null
 	return (
-		<div className={styles.wrapper}>
-			<motion.div
-				initial={true}
-				animate={isShow ? 'open' : 'closed'}
-				variants={sidebarAnimation}
-			>
+		<motion.div
+			initial={true}
+			animate={isShow ? 'open' : 'closed'}
+			variants={sidebarAnimation}
+		>
+			<div className={styles.wrapper}>
 				<div className={styles.sidebar}>
 					<div className={styles.logo}>
 						<Logo />
@@ -39,9 +40,10 @@ const Sidebar: FC = () => {
 					</div>
 
 					<Menu items={MenuData.items} title={MenuData.title} />
+					<OtherMenu />
 				</div>
-			</motion.div>
-		</div>
+			</div>
+		</motion.div>
 	)
 }
 

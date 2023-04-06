@@ -10,7 +10,7 @@ export const FADE_IN: MotionProps = {
 export const menuAnimation: Variants = {
 	open: {
 		// maxHeight: '100px',
-		// translateY: '100px',
+		translateX: 0,
 		// height: '500px',
 		opacity: 1,
 		// height: 0,
@@ -20,6 +20,7 @@ export const menuAnimation: Variants = {
 	closed: {
 		// maxHeight: 0,
 		opacity: 0,
+		translateX: '213px',
 		// height: 0,
 		// height: '100%',
 		// overflow: 'hidden',
@@ -31,7 +32,10 @@ export const sidebarAnimation: Variants = {
 	open: {
 		// maxHeight: '100px',
 		// translateY: '100px',
-		translateX: 0,
+		// translateX: 0,
+		marginLeft: 0,
+		// width: '100%',
+		// zIndex: 30,
 		// height: '500px',
 		// opacity: 1,
 		// height: 0,
@@ -41,7 +45,10 @@ export const sidebarAnimation: Variants = {
 	closed: {
 		// maxHeight: 0,
 		// opacity: 0,
-		translateX: '-100%',
+		// width: '10px',
+		// translateX: '-233px',
+		marginLeft: '-232px',
+		// zIndex: 40,
 		// height: 0,
 		// height: '100%',
 		// overflow: 'hidden',
