@@ -3,14 +3,20 @@ import { MouseEvent } from 'react'
 
 import MaterialIcon from '@/components/ui/icons/MaterialIcon'
 
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
+
 import { AuthService } from '@/services/auth/auth.service'
 
 import styles from '../menu/Menu.module.scss'
 
 const LogoutButton: FC = () => {
+	const { user } = useAuth()
+	const { logout } = useActions()
+
 	const handleLogout = async (e: MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault()
-		await AuthService.logout()
+		logout()
 	}
 
 	return (

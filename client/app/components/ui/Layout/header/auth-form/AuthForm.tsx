@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { motion } from 'framer-motion'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { FaRegUserCircle } from 'react-icons/fa'
 
@@ -8,6 +8,7 @@ import Button from '@/components/ui/Button/Button'
 import Field from '@/components/ui/Field/Field'
 import UserAvatar from '@/components/ui/user-avatar/UserAvatar'
 
+import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 import { useOutside } from '@/hooks/useOutside'
 
@@ -33,35 +34,41 @@ const AuthForm: FC = () => {
 		reset,
 	} = useForm<IAuthFields>({ mode: 'onChange' })
 
-	const { user, setUser } = useAuth()
+	const { user: currentUser } = useAuth()
+	const [user, setUser] = useState<any>()
 
-	const { mutate: loginSync } = useMutation(
-		['login'],
-		(data: IAuthFields) => AuthService.login(data.email, data.password),
-		{
-			onSuccess: (data) => {
-				if (setUser) setUser(data.user)
-				setIsShow(false)
-				reset()
-			},
-		}
-	)
+	useEffect(() => {
+		setUser(currentUser)
+	}, [currentUser])
+	const { login, logout, register: registerUser } = useActions()
 
-	const { mutate: registerSync } = useMutation(
-		['register'],
-		(data: IAuthFields) => AuthService.register(data.email, data.password),
-		{
-			onSuccess: (data) => {
-				if (setUser) setUser(data.user)
-				setIsShow(false)
-				reset()
-			},
-		}
-	)
+	// const { mutate: loginSync } = useMutation(
+	// 	['login'],
+	// 	(data: IAuthFields) => AuthService.login(data.email, data.password),
+	// 	{
+	// 		onSuccess: (data) => {
+	// 			if (setUser) setUser(data.user)
+	// 			setIsShow(false)
+	// 			reset()
+	// 		},
+	// 	}
+	// )
+
+	// const { mutate: registerSync } = useMutation(
+	// 	['register'],
+	// 	(data: IAuthFields) => AuthService.register(data.email, data.password),
+	// 	{
+	// 		onSuccess: (data) => {
+	// 			if (setUser) setUser(data.user)
+	// 			setIsShow(false)
+	// 			reset()
+	// 		},
+	// 	}
+	// )
 
 	const onSubmit: SubmitHandler<IAuthFields> = (data) => {
-		if (type === 'login') loginSync(data)
-		if (type === 'register') registerSync(data)
+		if (type === 'login') login(data)
+		if (type === 'register') registerUser(data)
 	}
 	return (
 		<div className={styles.wrapper} ref={ref}>

@@ -59,13 +59,13 @@ export const sidebarAnimation: Variants = {
 export const sidebarButtonAnimation: Variants = {
 	left: {
 		transform: 'rotate(0) translate(0)',
-		transformOrigin: 'center',
+		// transformOrigin: 'center',
 
 		transition: { type: 'keyframes', duration: 0.2 },
 	},
 	right: {
 		transform: 'rotate(180deg) translate(-50%)',
-		transformOrigin: 'center',
+		// transformOrigin: 'center',
 		transition: { type: 'keyframes', duration: 0.2 },
 	},
 }

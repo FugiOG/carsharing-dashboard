@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 import { IMeta } from './meta.interface'
 
-const Meta: FC<IMeta> = ({ title, description }) => {
+const Meta: FC<IMeta> = ({ title, description = '' }) => {
 	return (
 		<>
 			<Head>

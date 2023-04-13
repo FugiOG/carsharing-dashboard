@@ -19,3 +19,25 @@ export interface UserDto
 	extends Pick<IUser, 'name' | 'email' | 'avatarPath' | 'city' | 'isAdmin'> {
 	password?: string
 }
+
+// export interface IUserState {
+// 	email: string
+// 	isAdmin: boolean
+// }
+
+export interface IInitialState {
+	user: IUser | null
+	isLoading: boolean
+}
+
+export interface IToken {
+	accessToken: string
+}
+
+// export interface IAuthResponse extends IToken {
+// 	user: IUser
+// }
+export interface IEmailPassword {
+	email: string
+	password: string
+}

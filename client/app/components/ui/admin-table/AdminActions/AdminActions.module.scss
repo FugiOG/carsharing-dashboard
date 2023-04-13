@@ -1,0 +1,21 @@
+.actions {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	> button {
+		outline: none;
+		background: transparent;
+		height: 20px;
+		font-size: 20px;
+		color: #ffffff;
+		opacity: 0.8;
+		transition: opacity 0.3s ease-in-out;
+		&:hover {
+			opacity: 1;
+		}
+
+		&:first-child {
+			margin-right: 12px;
+		}
+	}
+}

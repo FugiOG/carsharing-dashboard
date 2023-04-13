@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import * as MaterialIcons from 'react-icons/md'
 
 import { useRenderClient } from '@/hooks/useRenderClient'
@@ -13,4 +13,4 @@ const MaterialIcon: FC<{ name: TypeMaterialIconName }> = ({ name }) => {
 	else return null
 }
 
-export default MaterialIcon
+export default memo(MaterialIcon)

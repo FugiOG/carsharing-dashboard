@@ -1,0 +1,48 @@
+.item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #73737d;
+	margin-top: 12px;
+	padding: 0 10px;
+	border-radius: 6px;
+	opacity: 0.8;
+	transition: opacity 0.3s ease-in-out;
+	min-width: 740px;
+	font-size: 18px;
+	&:hover {
+		opacity: 1;
+	}
+
+	> div {
+		color: #fff;
+		opacity: 0.8;
+		padding: 8px 0;
+		width: 26%;
+
+		&:last-child {
+			text-align: right;
+			justify-content: flex-end;
+		}
+	}
+}
+
+.itemHeader {
+	background-color: var(--primary);
+	opacity: 0.8;
+	box-shadow: 0 4px 16px rgba(45, 8, 125, 0.3);
+	margin-top: 20px;
+	&:hover {
+		opacity: 0.8;
+	}
+
+	> div {
+		opacity: 0.9;
+		font-weight: 600;
+		padding: 6px 0;
+	}
+}
+
+// .notFound {
+// 	@apply text-lg text-white text-opacity-60 text-center py-3;
+// }

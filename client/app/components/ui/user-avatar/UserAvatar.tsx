@@ -10,7 +10,7 @@ const UserAvatar: FC<{ avatarPath: string; link: string; title: string }> = ({
 	title,
 }) => {
 	return (
-		<Link href={link} title={title}>
+		<Link href={link} title={title} style={{ height: '40px' }}>
 			<Image
 				className={styles.avatar}
 				src={avatarPath}

@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import {
 	FC,
@@ -8,39 +9,54 @@ import {
 	useState,
 } from 'react'
 
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
+
+import { TypeComponentAuthFields } from '@/shared/interfaces/auth.interface'
+
 import { AuthService } from '@/services/auth/auth.service'
 
 import { IContext, TypeUserState } from './auth.interface'
 
-export const AuthContext = createContext({} as IContext)
+const DynamicCheckRole = dynamic(() => import('./CheckRole'), { ssr: false })
 
-const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
-	const [user, setUser] = useState<TypeUserState>(null)
+const AuthProvider: FC<TypeComponentAuthFields> = ({
+	children,
+	Component: { isOnlyAdmin },
+}) => {
+	const { user: currentUser } = useAuth()
+	const [user, setUser] = useState<any>(null)
+
+	useEffect(() => {
+		setUser(currentUser)
+	}, [currentUser])
+
+	const { logout } = useActions()
 
 	const { pathname } = useRouter()
 
-	useEffect(() => {
-		const accessToken = Cookies.get('accessToken')
+	// useEffect(() => {
+	// 	const accessToken = Cookies.get('accessToken')
 
-		if (accessToken) {
-			const user = JSON.parse(localStorage.getItem('user') || '')
+	// 	if (accessToken) {
+	// 		const user = JSON.parse(localStorage.getItem('user') || '')
 
-			setUser(user)
-		}
-	}, [])
+	// 		setUser(user)
+	// 	}
+	// }, [])
 
 	useEffect(() => {
 		const accessToken = Cookies.get('accessToken')
 		if (!accessToken && !user) {
-			AuthService.logout()
+			logout()
 			setUser(null)
 		}
 	}, [pathname])
 
-	return (
-		<AuthContext.Provider value={{ user, setUser }}>
-			{children}
-		</AuthContext.Provider>
+	return !isOnlyAdmin ? (
+		<>{children}</>
+	) : (
+		<DynamicCheckRole Component={{ isOnlyAdmin }}>{children}</DynamicCheckRole>
 	)
 }
 

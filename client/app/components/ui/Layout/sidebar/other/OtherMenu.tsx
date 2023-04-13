@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, memo, useEffect, useState } from 'react'
 
 import { useAuth } from '@/hooks/useAuth'
 

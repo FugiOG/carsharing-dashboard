@@ -1,7 +1,7 @@
 import { IRent } from './rent.interface'
 
 export interface ICar {
-	id: number
+	id: string
 	brand: string
 	fullPrice: number
 	rentalPrice: number
