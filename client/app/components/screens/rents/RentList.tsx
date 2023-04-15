@@ -5,8 +5,8 @@ import AdminTable from '@/components/ui/admin-table/AdminTable'
 import Heading from '@/components/ui/heading/Heading'
 
 import Meta from '@/utils/meta/Meta'
-import { useRents } from './useRents'
 
+import { useRents } from './useRents'
 
 const RentList: FC = () => {
 	const {
@@ -29,7 +29,14 @@ const RentList: FC = () => {
 			/>
 			<AdminTable
 				isLoading={isLoading}
-				headerItems={['Car id', 'Car brand', 'User email', 'Cost', "Rating", "Issue date", "Return date"]}
+				headerItems={[
+					'Rent id',
+					'Car brand',
+					'User email',
+					'Cost',
+					'Rating',
+					'Return date',
+				]}
 				removeHandler={deleteAsync}
 				tableItems={data || []}
 			/>

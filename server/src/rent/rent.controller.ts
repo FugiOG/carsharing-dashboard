@@ -26,6 +26,13 @@ export class RentController {
 		return this.rentService.getAll(searchTerm)
 	}
 
+	@Get(':id')
+	@HttpCode(200)
+	@Auth()
+	async getRent(@Param('id') id: string) {
+		return this.rentService.byId(id)
+	}
+
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	@Post()

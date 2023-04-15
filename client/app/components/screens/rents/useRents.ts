@@ -22,16 +22,14 @@ export const useRents = () => {
 						id: rent.id,
 						editUrl: `/manage/rents/edit/${rent.id}`,
 						items: [
-							rent.carId,
-							rent.car.brand,
-							rent.userId,
+							String(rent.id),
+							`${rent.car.brand} | id: ${rent.carId}`,
 							rent.user.email,
 							rent.cost.toLocaleString('ru-RU', {
 								style: 'currency',
 								currency: 'RUB',
 							}),
 							`${rent.rating}`,
-							String(rent.issueDate),
 							String(rent.returnDate),
 						],
 					})

@@ -3,8 +3,8 @@ import { IUser } from './user.interface'
 
 export interface IRent {
 	id: number
-	userId: string
-	carId: string
+	userId: number
+	carId: number
 	user: IUser
 	car: ICar
 	rating: number

@@ -1,0 +1,17 @@
+.selectContainer {
+	position: relative;
+	margin-bottom: 2rem;
+
+	> label {
+		display: block;
+
+		> span {
+			font-size: 0.75rem;
+			line-height: 1rem;
+			text-transform: uppercase;
+			opacity: 0.8;
+			display: block;
+			margin-bottom: 0.25rem;
+		}
+	}
+}
