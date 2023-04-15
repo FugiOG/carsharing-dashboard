@@ -48,7 +48,7 @@ export const useCars = () => {
 		() => CarService.createCar(),
 		{
 			onSuccess: ({ data: id }) => {
-				push(`/manage/actor/edit/${id}`)
+				push(`/manage/cars/edit/${id}`)
 			},
 		}
 	)
