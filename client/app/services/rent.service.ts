@@ -12,8 +12,17 @@ export const RentService = {
 				: {},
 		})
 	},
-	async create(data: RentDto) {
-		return axios.post<string>('/rent', data)
+
+	async getById(id: string) {
+		return axios.get<IRent>(`/rent/${id}`)
+	},
+
+	async create() {
+		return axios.post<string>('/rent')
+	},
+
+	async updateRent(id: string, body: RentDto) {
+		return axios.put<IRent>(`rent/${id}`, body)
 	},
 
 	async delete(id: string) {

@@ -6,6 +6,7 @@ import {
 	HttpCode,
 	Param,
 	Post,
+	Put,
 	Query,
 	UsePipes,
 	ValidationPipe,
@@ -29,8 +30,16 @@ export class RentController {
 	@HttpCode(200)
 	@Post()
 	@Auth()
-	async createRent(@Body() dto: RentDto) {
-		return this.rentService.create(dto)
+	async createRent() {
+		return this.rentService.create()
+	}
+
+	@UsePipes(new ValidationPipe())
+	@Put(':id')
+	@HttpCode(200)
+	@Auth('admin')
+	async update(@Param('id') id: string, @Body() dto: RentDto) {
+		return this.rentService.update(id, dto)
 	}
 
 	@Delete(':id')

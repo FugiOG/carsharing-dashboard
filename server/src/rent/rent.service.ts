@@ -11,6 +11,15 @@ export class RentService {
 		@InjectModel(RentModel) private readonly rentModel: typeof RentModel
 	) {}
 
+	async byId(id: string) {
+		const rent = await this.rentModel.findOne({
+			where: { id },
+			include: [{ all: true }],
+		})
+		if (!rent) throw new NotFoundException('Rent not found')
+		return rent
+	}
+
 	async getAll(searchTerm?: string) {
 		let options: WhereOptions<RentModel> = {}
 
@@ -27,8 +36,16 @@ export class RentService {
 		})
 	}
 
-	async create(dto: RentDto) {
-		return this.rentModel.create({
+	async create() {
+		const rent = await this.rentModel.create()
+		return rent.id
+	}
+
+	async update(id: string, dto: RentDto) {
+		const rent = await this.byId(id)
+
+		return rent.update({
+			...rent,
 			...dto,
 		})
 	}
