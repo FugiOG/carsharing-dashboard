@@ -10,6 +10,7 @@ import UploadField from '@/components/ui/upload-field/UploadField'
 // import formStyles from '@/ui/form-elements/admin-form.module.scss'
 import Meta from '@/utils/meta/Meta'
 
+import styles from './CarEdit.module.scss'
 import { ICarEditInput } from './car-edit.interface'
 import { useCarEdit } from './useCarEdit'
 
@@ -31,101 +32,72 @@ const CarEdit: FC = () => {
 			<Meta title="Edit car" />
 			<Heading title="Edit car" />
 
-			<form onSubmit={handleSubmit(onSubmit)}>
-				{isLoading ? (
-					<SkeletonLoader count={3} />
-				) : (
-					<>
-						<div>
-							<label>
-								Brand
-								<Field
-									{...register('brand', {
-										required: 'Brand is required!',
-									})}
-									placeholder="Brand"
-									error={errors.brand}
-									style={{ width: '31%' }}
-								/>
-							</label>
-							<label>
-								Full price
-								<Field
-									{...register('fullPrice', {
-										required: 'Full price is required!',
-									})}
-									placeholder="Full price"
-									error={errors.fullPrice}
-									style={{ width: '31%' }}
-								/>
-							</label>
-
-							{/* <SlugField
-								register={register}
-								error={errors.slug}
-								generate={() => {
-                                    setValue('slug', generateSlug(getValues('name')))
-								}}
-							/> */}
-						</div>
-						<div>
-							<label>
-								Rental price
-								<Field
-									{...register('rentalPrice', {
-										required: 'Rental price is required!',
-									})}
-									placeholder="Rental price"
-									error={errors.rentalPrice}
-									style={{ width: '31%' }}
-								/>
-							</label>
-							<Controller
-								control={control}
-								name="imagePath"
-								defaultValue=""
-								render={({
-									field: { onChange, value },
-									fieldState: { error },
-								}) => (
-									<UploadField
-										onChange={onChange}
-										value={value}
-										error={error}
-										placeholder="Image"
-										folder="cars"
+			<div className={styles['form-wrapper']}>
+				<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+					{isLoading ? (
+						<SkeletonLoader count={3} />
+					) : (
+						<>
+							<div className={styles.fields}>
+								<label>
+									<span>Brand</span>
+									<Field
+										{...register('brand', {
+											required: 'Brand is required!',
+										})}
+										placeholder="Brand"
+										error={errors.brand}
 									/>
-								)}
-								rules={{
-									required: 'Image is required!',
-								}}
-							/>
-						</div>
+								</label>
+								<label>
+									<span>Full price</span>
+									<Field
+										{...register('fullPrice', {
+											required: 'Full price is required!',
+										})}
+										placeholder="Full price"
+										error={errors.fullPrice}
+									/>
+								</label>
 
-						{/* <Controller
-							control={control}
-							name="photo"
-							defaultValue=""
-							render={({
-								field: { onChange, value },
-								fieldState: { error },
-							}) => (
-								<UploadField
-									onChange={onChange}
-									value={value}
-									error={error}
-									placeholder="Photo"
-									folder="actors"
+								<label>
+									<span>Rental price</span>
+									<Field
+										{...register('rentalPrice', {
+											required: 'Rental price is required!',
+										})}
+										placeholder="Rental price"
+										error={errors.rentalPrice}
+									/>
+								</label>
+								<Controller
+									control={control}
+									name="imagePath"
+									defaultValue=""
+									render={({
+										field: { onChange, value },
+										fieldState: { error },
+									}) => (
+										<UploadField
+											onChange={onChange}
+											value={value}
+											error={error}
+											placeholder="Image"
+											folder="cars"
+											style={{ marginTop: '40px' }}
+										/>
+									)}
+									rules={{
+										required: 'Image is required!',
+									}}
 								/>
-							)}
-							rules={{
-								required: 'Photo is required!',
-							}}
-						/> */}
-						<Button>Update</Button>
-					</>
-				)}
-			</form>
+							</div>
+
+							<Button className={styles.updateBtn}>Update</Button>
+						</>
+					)}
+				</form>
+			</div>
 		</>
 	)
 }

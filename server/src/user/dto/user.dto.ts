@@ -10,7 +10,6 @@ export class UserDto {
 	@IsString()
 	city?: string
 
-	@IsString()
 	password?: string
 
 	@IsString()

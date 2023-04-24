@@ -1,0 +1,57 @@
+.form-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.form {
+		background-color: #fff;
+		margin-top: 3rem;
+		max-width: 800px;
+		width: 700px;
+		padding: 10px 20px;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.fields {
+			display: flex;
+			width: 100%;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 5px;
+
+			> label {
+				display: block;
+				width: 32%;
+				> div {
+					width: 100%;
+				}
+
+				> span {
+					font-size: 0.75rem;
+					line-height: 1rem;
+					text-transform: uppercase;
+					opacity: 0.8;
+					display: block;
+					margin-bottom: 0.25rem;
+				}
+			}
+		}
+
+		.select {
+			display: flex;
+			width: 100%;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		button {
+			margin-top: 20px;
+		}
+		.updateBtn {
+			align-self: flex-end;
+			margin-top: 30px;
+		}
+	}
+}

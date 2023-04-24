@@ -10,6 +10,7 @@
 	transition: opacity 0.3s ease-in-out;
 	min-width: 740px;
 	font-size: 18px;
+	gap: 12px;
 	&:hover {
 		opacity: 1;
 	}
@@ -23,6 +24,10 @@
 		&:last-child {
 			text-align: right;
 			justify-content: flex-end;
+		}
+
+		&:first-child {
+			width: 16%;
 		}
 	}
 }

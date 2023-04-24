@@ -25,7 +25,7 @@ const AuthProvider: FC<TypeComponentAuthFields> = ({
 	Component: { isOnlyAdmin },
 }) => {
 	const { user: currentUser } = useAuth()
-	const [user, setUser] = useState<any>(null)
+	const [user, setUser] = useState<any>(currentUser)
 
 	useEffect(() => {
 		setUser(currentUser)
@@ -49,7 +49,6 @@ const AuthProvider: FC<TypeComponentAuthFields> = ({
 		const accessToken = Cookies.get('accessToken')
 		if (!accessToken && !user) {
 			logout()
-			setUser(null)
 		}
 	}, [pathname])
 

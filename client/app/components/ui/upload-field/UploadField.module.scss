@@ -13,11 +13,12 @@
 	}
 	.uploadFlex {
 		display: flex;
+		align-items: center;
 		> .uploadImageContainer {
 			flex-shrink: 0;
 			position: relative;
-			width: 6rem;
-			height: 6rem;
+			width: 3.5rem;
+			height: 3.5rem;
 			img {
 				object-position: center;
 				object-fit: cover;

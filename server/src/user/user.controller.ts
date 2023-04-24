@@ -55,10 +55,10 @@ export class UserController {
 		return this.userService.delete(id)
 	}
 
-	@Put()
-	@Auth('admin')
+	@Put(':id')
+	@Auth()
 	@HttpCode(200)
-	async updateUser(@User('id') userId: string, @Body() dto: UserDto) {
+	async updateUser(@Param('id') userId: string, @Body() dto: UserDto) {
 		return this.userService.update(userId, dto)
 	}
 }

@@ -1,13 +1,14 @@
 import { IRent } from './rent.interface'
 
 export interface IUser {
-	id: number
+	id: string
 	name: string
 	email: string
 	avatarPath: string
 	city: string
 	isAdmin: boolean
 	rents?: IRent[]
+	password: string
 }
 
 export interface IAuthResponse {
@@ -16,9 +17,10 @@ export interface IAuthResponse {
 }
 
 export interface UserDto
-	extends Pick<IUser, 'name' | 'email' | 'avatarPath' | 'city' | 'isAdmin'> {
-	password?: string
-}
+	extends Pick<
+		IUser,
+		'name' | 'email' | 'avatarPath' | 'city' | 'isAdmin' | 'password'
+	> {}
 
 // export interface IUserState {
 // 	email: string

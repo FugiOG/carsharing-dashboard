@@ -26,7 +26,7 @@ export class CarService {
 
 		if (searchTerm) {
 			options = {
-				[Op.or]: [{ brand: { like: `%${searchTerm}%` } }],
+				brand: { [Op.like]: `%${searchTerm}%` },
 			}
 		}
 

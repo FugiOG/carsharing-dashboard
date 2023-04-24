@@ -4,7 +4,7 @@ import { InjectModel } from '@nestjs/sequelize'
 import { WhereOptions } from 'sequelize'
 import { Op } from 'sequelize'
 import { UserDto } from './dto/user.dto'
-
+import { hash, genSalt } from 'bcryptjs'
 @Injectable()
 export class UserService {
 	constructor(
@@ -25,7 +25,7 @@ export class UserService {
 
 		if (searchTerm) {
 			options = {
-				[Op.or]: [{ email: { like: `%${searchTerm}%` } }],
+				email: { [Op.like]: `%${searchTerm}%` },
 			}
 		}
 
@@ -38,9 +38,27 @@ export class UserService {
 
 	async update(id: string, dto: UserDto) {
 		const user = await this.byId(id)
+		const dynamParam: any = {}
+		const isSameUser = await this.userModel.findOne({
+			where: { email: dto.email },
+		})
+		if (isSameUser && String(id) === isSameUser.id) {
+			return new NotFoundException('Email busy')
+		}
+		if (dto.password) {
+			const salt = await genSalt(10)
+			dynamParam.password = await hash(dto.password, salt)
+		} else {
+			dynamParam.password = undefined
+		}
+		dynamParam.email = dto.email
+		if (dto.isAdmin || dto.isAdmin === false) {
+			dynamParam.isAdmin = dto.isAdmin
+		}
 		return user.update({
 			...user,
 			...dto,
+			...dynamParam,
 		})
 	}
 
