@@ -49,6 +49,7 @@ const AuthProvider: FC<TypeComponentAuthFields> = ({
 		const accessToken = Cookies.get('accessToken')
 		if (!accessToken && !user) {
 			logout()
+			setUser(null)
 		}
 	}, [pathname])
 

@@ -1,3 +1,4 @@
+import moment from 'moment'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
@@ -89,9 +90,10 @@ const RentEdit: FC = () => {
 										placeholder="Rating"
 										error={errors.rating}
 										type="number"
-										min={1}
-										max={5}
-										defaultValue={5}
+										step={0.1}
+										min={1.0}
+										max={5.0}
+										defaultValue={5.0}
 									/>
 								</label>
 							</div>

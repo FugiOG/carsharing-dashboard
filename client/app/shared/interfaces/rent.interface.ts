@@ -8,8 +8,8 @@ export interface IRent {
 	user: IUser
 	car: ICar
 	rating: number
-	issueDate: Date
-	returnDate: Date
+	issueDate: number
+	returnDate: number
 	cost: number
 }
 

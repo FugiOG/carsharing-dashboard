@@ -13,7 +13,14 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 				<Header />
 				<div style={{ display: 'flex', height: '100vh' }}>
 					<Sidebar />
-					<main style={{ padding: '16px', marginTop: '76px', width: '100%' }}>
+					<main
+						style={{
+							padding: '16px',
+							marginTop: '76px',
+							width: '100%',
+							zIndex: 0,
+						}}
+					>
 						{children}
 					</main>
 				</div>

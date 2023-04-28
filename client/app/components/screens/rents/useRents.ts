@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
+import moment from 'moment'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useMemo, useState } from 'react'
 
@@ -30,7 +31,7 @@ export const useRents = () => {
 								currency: 'RUB',
 							}),
 							`${rent?.rating}`,
-							String(rent?.returnDate),
+							moment.unix(rent?.returnDate).format('YYYY-MM-DD'),
 						],
 					})
 				),

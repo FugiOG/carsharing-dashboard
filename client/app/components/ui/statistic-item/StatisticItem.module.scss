@@ -1,0 +1,52 @@
+@import '../../../assets/styles/mixins.scss';
+
+.item {
+	position: relative;
+	background-color: #fafafa;
+	border-radius: 8px;
+	padding: 0.8rem 1rem;
+	min-width: 220px;
+	width: fit-content;
+	border-left: 2px solid #fff;
+	border-top: 2px solid #fff;
+	cursor: default;
+
+	&::before {
+		content: '';
+		z-index: -1;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+		background-color: #bbbdd2ca;
+		left: 0;
+		bottom: -5px;
+		@include shadow(lg);
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 15px;
+		height: 66px;
+		top: 17%;
+		right: 0;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		background-color: #ab8cf4;
+		box-shadow: inset 0 0 12px #0000004c;
+		// z-index: 3;
+	}
+
+	.icon {
+		font-size: 26px;
+	}
+	.name {
+		font-weight: 500;
+		opacity: 0.6;
+		font-size: 15px;
+	}
+	.value {
+		font-weight: 600;
+	}
+}

@@ -1,5 +1,5 @@
 import { ICar } from '@/shared/interfaces/car.interface'
 
-export interface IHome {
+export interface IDashboard {
 	cars: ICar[]
 }

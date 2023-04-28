@@ -1,19 +1,15 @@
 import { GetStaticProps, NextPage } from 'next'
-import { Montserrat } from 'next/font/google'
 
-import Home from '@/components/screens/home/Home'
-import { IHome } from '@/components/screens/home/home.interface'
-import Layout from '@/components/ui/Layout/Layout'
+import Dashboard from '@/components/screens/Dashboard/Dashboard'
+import { IDashboard } from '@/components/screens/Dashboard/dashboard.interface'
 
 import { CarService } from '@/services/car.service'
 
-import styles from '@/styles/Home.module.css'
-
-const HomePage: NextPage<IHome> = (props) => {
-	return <Home {...props} />
+const HomePage: NextPage<IDashboard> = (props) => {
+	return <Dashboard {...props} />
 }
 
-export const getStaticProps: GetStaticProps<IHome> = async () => {
+export const getStaticProps: GetStaticProps<IDashboard> = async () => {
 	try {
 		const { data: cars } = await CarService.getAll()
 		return {
