@@ -1,11 +1,11 @@
 import { IsDate, IsNumber, IsString } from 'class-validator'
 
 export class RentDto {
-	@IsString()
-	issueDate: string
+	@IsNumber()
+	issueDate: number
 
-	@IsString()
-	returnDate: string
+	@IsNumber()
+	returnDate: number
 
 	@IsNumber()
 	rating: number

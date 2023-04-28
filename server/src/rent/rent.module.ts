@@ -8,5 +8,6 @@ import { RentModel } from './rent.model'
 	imports: [SequelizeModule.forFeature([RentModel])],
 	controllers: [RentController],
 	providers: [RentService],
+	exports: [RentService],
 })
 export class RentModule {}

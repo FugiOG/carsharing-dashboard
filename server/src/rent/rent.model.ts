@@ -10,13 +10,13 @@ import { UserModel } from 'src/user/user.model'
 
 @Table({ tableName: 'Rent', deletedAt: false, version: false })
 export class RentModel extends Model<RentModel> {
-	@Column
-	issueDate: string
+	@Column({ type: 'bigint' })
+	issueDate: number
 
-	@Column
-	returnDate: string
+	@Column({ type: 'bigint' })
+	returnDate: number
 
-	@Column({ allowNull: true, defaultValue: 0 })
+	@Column({ allowNull: true, defaultValue: 0, type: 'float' })
 	rating: number
 
 	@Column

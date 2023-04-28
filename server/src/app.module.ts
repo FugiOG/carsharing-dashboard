@@ -7,8 +7,9 @@ import { getSequelizeConfig } from './config/db.config'
 import { UserModule } from './user/user.module'
 import { CarModule } from './car/car.module'
 import { RentModule } from './rent/rent.module'
-import { AuthModule } from './auth/auth.module';
-import { MediaModule } from './media/media.module';
+import { AuthModule } from './auth/auth.module'
+import { MediaModule } from './media/media.module'
+import { StatisticsModule } from './statistics/statistics.module'
 
 @Module({
 	imports: [
@@ -23,6 +24,7 @@ import { MediaModule } from './media/media.module';
 		RentModule,
 		AuthModule,
 		MediaModule,
+		StatisticsModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],
