@@ -6,6 +6,7 @@ import { CarModel } from 'src/car/car.model'
 import { RentModel } from 'src/rent/rent.model'
 import { RentService } from 'src/rent/rent.service'
 import { UserModel } from 'src/user/user.model'
+import { IStatisticItem } from './statistics.interface'
 
 @Injectable()
 export class StatisticsService {
@@ -16,7 +17,7 @@ export class StatisticsService {
 		private readonly rentService: RentService
 	) {}
 
-	async getMainStatistic() {
+	async getMainStatistic(): Promise<IStatisticItem[]> {
 		const countRents = await this.rentModel.count()
 		const countUsers = await this.userModel.count()
 		const countCars = await this.carModel.count()
@@ -25,14 +26,34 @@ export class StatisticsService {
 			.findAll({
 				attributes: [[fn('avg', col('rating')), 'rating']],
 			})
-			.then((data) => Number(data[0].rating as any).toFixed(1))
+			.then((data) => +Number(data[0].rating as any).toFixed(1))
 
-		return {
-			countRents,
-			countUsers,
-			countCars,
-			averageRating,
-		}
+		return [
+			{
+				id: 1,
+				name: 'Количество аренд',
+				value: countRents,
+				icon: 'MdCarRental',
+			},
+			{
+				id: 2,
+				name: 'Количество пользователей',
+				value: countUsers,
+				icon: 'MdSupervisorAccount',
+			},
+			{
+				id: 3,
+				name: 'Количество автомобилей',
+				value: countCars,
+				icon: 'MdOutlineDirectionsCar',
+			},
+			{
+				id: 4,
+				name: 'Средний рейтинг',
+				value: averageRating,
+				icon: 'MdStarOutline',
+			},
+		]
 	}
 
 	async getMiddleStatistic() {
