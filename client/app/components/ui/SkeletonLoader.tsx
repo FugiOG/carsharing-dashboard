@@ -1,15 +1,15 @@
 import cn from 'classnames'
 import { FC } from 'react'
-import Skeleton, { SkeletonProps } from 'react-loading-skeleton'
+import Skeleton, { SkeletonProps, SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-const SkeletonLoader: FC<SkeletonProps> = ({ className, ...rest }) => {
+const SkeletonLoader: FC<SkeletonProps> = (rest) => {
 	return (
-		<Skeleton
-			{...rest}
-			baseColor="#E7E9EA"
-			highlightColor="#CECFD0"
-			className={cn('rounded-lg', className)}
-		/>
+		<SkeletonTheme baseColor="#CCCDCE" highlightColor="#E7DFEA">
+			<p>
+				<Skeleton {...rest} />
+			</p>
+		</SkeletonTheme>
 	)
 }
 

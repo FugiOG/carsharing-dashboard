@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { TRUE } from 'sass'
 
 import SkeletonLoader from '../SkeletonLoader'
 
@@ -25,12 +26,17 @@ const AdminTable: FC<IAdminTable> = ({
 			<AdminTableHeader tabelItems={headerItems} />
 
 			{isLoading ? (
-				<SkeletonLoader count={1} height={48} className="mt-4" />
+				<SkeletonLoader
+					count={1}
+					height={48}
+					className="mt-4"
+					style={{ marginTop: '20px' }}
+				/>
 			) : tableItems.length ? (
 				tableItems.map((tableItem) => (
 					<AdminTableItem
 						key={tableItem.id}
-						removeHandler={() => removeHandler(tableItem.id)}
+						removeHandler={() => removeHandler(tableItem.id as string)}
 						tableItem={tableItem}
 					/>
 				))

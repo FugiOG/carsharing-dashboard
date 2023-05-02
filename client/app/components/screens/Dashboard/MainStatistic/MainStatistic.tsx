@@ -19,26 +19,34 @@ const MainStatistic: FC = () => {
 	)
 
 	return (
-		<div>
+		<>
 			<SubHeading title="Main Statistic" />
-			{isLoading ? (
-				<SkeletonLoader count={1} />
-			) : data?.length ? (
-				<div className={styles.wrapper}>
-					{data.map((item) => (
-						<StatisticItem
-							key={item.id}
-							id={item.id}
-							icon={item.icon}
-							name={item.name}
-							value={item.value}
-						/>
-					))}
-				</div>
-			) : (
-				<div>Stat not found</div>
-			)}
-		</div>
+			<div className={styles.wrapper}>
+				{isLoading ? (
+					<SkeletonLoader
+						count={4}
+						height={130}
+						width={260}
+						inline
+						style={{ margin: '20px' }}
+					/>
+				) : data?.length ? (
+					<div className={styles.items}>
+						{data.map((item) => (
+							<StatisticItem
+								key={item.id}
+								id={item.id}
+								icon={item.icon}
+								name={item.name}
+								value={item.value}
+							/>
+						))}
+					</div>
+				) : (
+					<div>Stat not found</div>
+				)}
+			</div>
+		</>
 	)
 }
 
