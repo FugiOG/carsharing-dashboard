@@ -1,0 +1,32 @@
+.progress {
+	position: relative;
+	margin: 4px;
+	margin-bottom: 26px;
+	text-align: center;
+	.barOverflow {
+		position: relative;
+		overflow: hidden;
+		width: 180px;
+		height: 90px;
+		margin: 0 auto;
+		margin-bottom: -14px;
+		.bar {
+			position: absolute;
+			top: 4px;
+			left: 0;
+			width: 180px;
+			height: 180px;
+			border-radius: 50%;
+			border: 26px solid #eee;
+			border-bottom-color: #9cf164;
+			border-right-color: #9cf164;
+			box-shadow: 0 0 6px rgba(34, 6, 93, 0.486),
+				inset 0 0 10px rgba(34, 6, 93, 0.226);
+		}
+	}
+	.percent {
+		font-weight: 600;
+		font-size: 24px;
+		margin-top: -24px;
+	}
+}
