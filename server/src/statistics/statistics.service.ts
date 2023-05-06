@@ -31,25 +31,25 @@ export class StatisticsService {
 		return [
 			{
 				id: 1,
-				name: 'Количество аренд',
+				name: 'Number of rentals',
 				value: countRents,
 				icon: 'MdCarRental',
 			},
 			{
 				id: 2,
-				name: 'Количество пользователей',
+				name: 'Number of users',
 				value: countUsers,
 				icon: 'MdSupervisorAccount',
 			},
 			{
 				id: 3,
-				name: 'Количество автомобилей',
+				name: 'Number of cars',
 				value: countCars,
 				icon: 'MdOutlineDirectionsCar',
 			},
 			{
 				id: 4,
-				name: 'Средний рейтинг',
+				name: 'Average rating',
 				value: averageRating,
 				icon: 'MdStarOutline',
 			},

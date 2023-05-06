@@ -20,8 +20,8 @@ const MainStatistic: FC = () => {
 
 	return (
 		<>
-			<SubHeading title="Main Statistic" />
 			<div className={styles.wrapper}>
+				<SubHeading title="Main Statistic" />
 				{isLoading ? (
 					<SkeletonLoader
 						count={4}

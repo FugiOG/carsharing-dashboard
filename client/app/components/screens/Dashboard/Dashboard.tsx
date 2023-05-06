@@ -6,6 +6,7 @@ import Heading from '@/components/ui/heading/Heading'
 import Meta from '@/utils/meta/Meta'
 
 import MainStatistic from './MainStatistic/MainStatistic'
+import MiddleStatistics from './MiddleStatistics/MiddleStatistics'
 import { IDashboard } from './dashboard.interface'
 
 const Dashboard: FC<IDashboard> = ({ cars }) => {
@@ -14,6 +15,7 @@ const Dashboard: FC<IDashboard> = ({ cars }) => {
 			<Meta title="Dashboard" />
 			<Heading title="Dashboard" />
 			<MainStatistic />
+			<MiddleStatistics />
 			{/* {cars.length ? cars.map()} */}
 		</>
 	)

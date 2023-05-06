@@ -1,6 +1,6 @@
 import { IRent } from '@/shared/interfaces/rent.interface'
 
-type KeysInStat =
+export type KeysInStat =
 	| '1'
 	| '2'
 	| '3'

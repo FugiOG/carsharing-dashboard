@@ -40,6 +40,7 @@ const AuthForm: FC = () => {
 	useEffect(() => {
 		setUser(currentUser)
 	}, [currentUser])
+
 	const { login, logout, register: registerUser } = useActions()
 
 	// const { mutate: loginSync } = useMutation(

@@ -63,6 +63,15 @@ const Auth: FC = () => {
 					Register
 				</button>
 			</form>
+			<svg className={styles.bloobSvg}>
+				<filter id="goo">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="30" />
+				</filter>
+			</svg>
+			<div className={styles.bloob}>
+				<div></div>
+				<div></div>
+			</div>
 		</div>
 	)
 }

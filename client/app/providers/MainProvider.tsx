@@ -22,9 +22,9 @@ const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
 	return (
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
-				<AuthProvider Component={Component}>
-					<Layout>{children}</Layout>
-				</AuthProvider>
+				<Layout>
+					<AuthProvider Component={Component}>{children}</AuthProvider>
+				</Layout>
 			</QueryClientProvider>
 		</Provider>
 	)
