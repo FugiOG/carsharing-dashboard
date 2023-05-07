@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import { FC } from 'react'
-import { TRUE } from 'sass'
+
+import { FADE_IN } from '@/utils/animation/fade'
 
 import SkeletonLoader from '../SkeletonLoader'
 
@@ -22,7 +24,7 @@ const AdminTable: FC<IAdminTable> = ({
 	tableItems,
 }) => {
 	return (
-		<div>
+		<motion.div {...FADE_IN(0.5, 1, 0.3)}>
 			<AdminTableHeader tabelItems={headerItems} />
 
 			{isLoading ? (
@@ -43,7 +45,7 @@ const AdminTable: FC<IAdminTable> = ({
 			) : (
 				<div className={styles.notFound}>Elements not found</div>
 			)}
-		</div>
+		</motion.div>
 	)
 }
 

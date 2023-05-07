@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import { FC } from 'react'
 
+import AnimatedCounter from '../AnimatedCounter'
 import MaterialIcon from '../icons/MaterialIcon'
 
 import styles from './StatisticItem.module.scss'
@@ -13,7 +14,9 @@ const StatisticItem: FC<IStatisticItem> = (item) => {
 				<MaterialIcon name={item.icon} />
 			</div>
 			<div className={styles.name}>{item.name}</div>
-			<div className={styles.value}>{item.value.toLocaleString('ru-RU')}</div>
+			<div className={styles.value}>
+				<AnimatedCounter to={item.value} />
+			</div>
 		</div>
 	)
 }

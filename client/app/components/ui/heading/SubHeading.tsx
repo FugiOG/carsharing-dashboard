@@ -1,5 +1,8 @@
 import cn from 'classnames'
+import { motion } from 'framer-motion'
 import { FC } from 'react'
+
+import { FADE_IN } from '@/utils/animation/fade'
 
 import styles from './Heading.module.scss'
 
@@ -9,7 +12,14 @@ interface ISubHeading {
 }
 
 const SubHeading: FC<ISubHeading> = ({ title, className }) => {
-	return <h2 className={cn(styles.subHeading, className)}>{title}</h2>
+	return (
+		<motion.h2
+			{...FADE_IN(1.3, 0.7)}
+			className={cn(styles.subHeading, className)}
+		>
+			{title}
+		</motion.h2>
+	)
 }
 
 export default SubHeading

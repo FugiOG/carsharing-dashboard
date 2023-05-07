@@ -17,6 +17,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 						style={{
 							padding: '16px',
 							marginTop: '76px',
+							marginLeft: '236px',
 							width: '100%',
 							zIndex: 0,
 						}}

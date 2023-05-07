@@ -7,7 +7,7 @@ import SubHeading from '@/components/ui/heading/SubHeading'
 import { StatisticsService } from '@/services/statistics/statistics.service'
 
 import styles from './MiddleStatistics.module.scss'
-import RentsByMonth from './RentsByMonth'
+import RentsChart from './rents-chart/RentsChart'
 import TotalIncome from './total-income/TotalIncome'
 
 const MiddleStatistics: FC = () => {
@@ -21,7 +21,7 @@ const MiddleStatistics: FC = () => {
 			{isLoading ? (
 				<SkeletonLoader
 					count={2}
-					height={130}
+					height={276}
 					width={260}
 					inline
 					style={{ margin: '20px' }}
@@ -29,7 +29,7 @@ const MiddleStatistics: FC = () => {
 			) : data ? (
 				<div className={styles.items}>
 					<TotalIncome totalIncome={data.income} />
-					<RentsByMonth rents={data.rentsByMonth} />
+					<RentsChart rents={data.rentsByMonth} />
 				</div>
 			) : (
 				<div>Stat not found</div>

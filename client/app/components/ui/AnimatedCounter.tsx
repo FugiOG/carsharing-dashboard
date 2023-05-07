@@ -1,22 +1,28 @@
 import { animate } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { FC, useCallback, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 
+import { FADE_IN } from '@/utils/animation/fade'
+
 interface IAnimatedCounter {
-	from?: number
 	to: number
 }
-const AnimatedCounter: FC<IAnimatedCounter> = ({ from = 0, to }) => {
+const AnimatedCounter: FC<IAnimatedCounter> = ({ to }) => {
 	const nodeRef = useRef<HTMLSpanElement>(null)
 	const [inViewRef, inView] = useInView()
+
+	const from = to - to * 0.3
+
 	useEffect(() => {
 		if (!inView) return
 		const node = nodeRef.current
 
 		const controls = animate(from, to, {
-			duration: 2,
+			duration: 1.5,
 			onUpdate(value) {
-				if (node) node.textContent = value.toLocaleString('ru-RU')
+				if (node)
+					node.textContent = Number(value.toFixed(1)).toLocaleString('ru-RU')
 			},
 		})
 		return () => controls.stop()
@@ -31,7 +37,7 @@ const AnimatedCounter: FC<IAnimatedCounter> = ({ from = 0, to }) => {
 		},
 		[inViewRef]
 	)
-	return <span ref={setRefs} />
+	return <motion.span {...FADE_IN()} ref={setRefs} />
 }
 
 export default AnimatedCounter

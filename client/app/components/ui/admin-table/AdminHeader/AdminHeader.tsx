@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion'
 import { ChangeEvent, FC } from 'react'
+
+import { FADE_IN } from '@/utils/animation/fade'
 
 import SearchField from '../../search-field/SearchField'
 
@@ -17,10 +20,10 @@ const AdminHeader: FC<IAdminHeader> = ({
 	onClick,
 }) => {
 	return (
-		<div className={styles.header}>
+		<motion.div {...FADE_IN(0.5, 1)} className={styles.header}>
 			<SearchField handleSearch={heandleSearch} searchTerm={searchTerm} />
 			{onClick && <AdminCreateButton onClick={onClick} />}
-		</div>
+		</motion.div>
 	)
 }
 

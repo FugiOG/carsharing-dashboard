@@ -7,7 +7,7 @@ export const useProgressAnimate = (percent: number) => {
 		},
 		whileInView: {
 			rotate: `${45 + percent * 1.8}deg`,
-			transition: { type: 'easyInOut', duration: 2 },
+			transition: { type: 'easyInOut', duration: 1.5 },
 		},
 		viewport: { once: true },
 	}
