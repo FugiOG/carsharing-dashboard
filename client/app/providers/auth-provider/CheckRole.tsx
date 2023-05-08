@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
 
@@ -15,18 +17,17 @@ const CheckRole: FC<TypeComponentAuthFields> = ({
 	useEffect(() => {
 		setUser(currentUser)
 	}, [currentUser])
-
 	const router = useRouter()
 
 	const Children = () => <>{children}</>
 	if (user?.isAdmin) return <Children />
 
-	if (isOnlyAdmin) {
+	const isUser = user && !user.isAdmin
+
+	if (isOnlyAdmin && isUser) {
 		router.pathname !== '/404' && router.replace('/404')
 		return null
 	}
-
-	const isUser = user && !user.isAdmin
 
 	if (isUser) return <Children />
 	else {

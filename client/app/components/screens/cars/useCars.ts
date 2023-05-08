@@ -23,6 +23,7 @@ export const useCars = () => {
 						editUrl: `/manage/cars/edit/${car.id}`,
 						items: [
 							car.brand,
+							car.model,
 							car.fullPrice.toLocaleString('ru-RU', {
 								style: 'currency',
 								currency: 'RUB',

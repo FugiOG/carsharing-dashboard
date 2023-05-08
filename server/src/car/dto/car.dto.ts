@@ -4,6 +4,9 @@ export class CarDto {
 	@IsString()
 	brand?: string
 
+	@IsString()
+	model?: string
+
 	@IsNumber()
 	fullPrice: number
 

@@ -12,7 +12,7 @@ const AnimatedCounter: FC<IAnimatedCounter> = ({ to }) => {
 	const nodeRef = useRef<HTMLSpanElement>(null)
 	const [inViewRef, inView] = useInView()
 
-	const from = to - to * 0.3
+	const from = to * 0.7
 
 	useEffect(() => {
 		if (!inView) return

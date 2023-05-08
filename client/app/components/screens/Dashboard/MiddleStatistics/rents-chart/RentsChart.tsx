@@ -74,38 +74,34 @@ export const options = {
 	},
 }
 
-const labels = [
-	'Jan',
-	'Feb',
-	'Mar',
-	'Apr',
-	'May',
-	'Jun',
-	'Jul',
-	'Aug',
-	'Sep',
-	'Oct',
-	'Nov',
-	'Dec',
-]
-
-export const data = {
-	labels,
-	datasets: [
-		{
-			label: 'Dataset 1',
-			data: labels.map(() => 200),
-			backgroundColor: 'rgba(94,107,232, 0.7)',
-		},
-	],
-}
-const RentsChart: FC<{ rents: { (key: KeysInStat): IRent[] } }> = ({
-	rents,
-}) => {
+const RentsChart: FC<{ rents: { [key: string]: IRent[] } }> = ({ rents }) => {
 	return (
 		<div className={styles.chart}>
-			{/* @ts-ignore */}
-			<Bar options={options} data={data} />
+			<Bar
+				options={options as any}
+				data={{
+					labels: Object.keys(rents),
+					datasets: [
+						{
+							label: 'Dataset 1',
+							data: Object.keys(rents).map(
+								(label: string) => rents[label].length
+							),
+							backgroundColor: function (context) {
+								const value = context.dataset.data[context.dataIndex] || 0
+								const maxNum = Math.max.apply(
+									null,
+									Object.values(context.dataset.data) as number[]
+								)
+								// console.log(value)
+								const opacity = +value / maxNum
+								return `rgba(94,107,232, ${opacity})` // Используйте нужный вам цвет и прозрачность
+							},
+							// backgroundColor: 'rgba(94,107,232, 0.7)',
+						},
+					],
+				}}
+			/>
 		</div>
 	)
 }

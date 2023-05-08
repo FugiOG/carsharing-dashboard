@@ -13,8 +13,7 @@ export class StatisticsService {
 	constructor(
 		@InjectModel(RentModel) private readonly rentModel: typeof RentModel,
 		@InjectModel(CarModel) private readonly carModel: typeof CarModel,
-		@InjectModel(UserModel) private readonly userModel: typeof UserModel,
-		private readonly rentService: RentService
+		@InjectModel(UserModel) private readonly userModel: typeof UserModel
 	) {}
 
 	async getMainStatistic(): Promise<IStatisticItem[]> {
@@ -64,9 +63,12 @@ export class StatisticsService {
 			.then((data) => Number(data[0].cost as any))
 
 		const rentsByMonth = {}
-		const rents = await this.rentService.getAll()
+		const rents = await this.rentModel.findAll({
+			order: [['returnDate', 'ASC']],
+			include: [{ all: true }],
+		})
 		rents.forEach((rent) => {
-			const returnMonth = moment.unix(rent.returnDate).month() + 1
+			const returnMonth = moment.unix(rent.returnDate).format('MMM')
 			if (!rentsByMonth[returnMonth]) {
 				rentsByMonth[returnMonth] = []
 			}

@@ -5,13 +5,9 @@ import { SequelizeModule } from '@nestjs/sequelize'
 import { RentModel } from 'src/rent/rent.model'
 import { CarModel } from 'src/car/car.model'
 import { UserModel } from 'src/user/user.model'
-import { RentModule } from 'src/rent/rent.module'
 
 @Module({
-	imports: [
-		SequelizeModule.forFeature([RentModel, CarModel, UserModel]),
-		RentModule,
-	],
+	imports: [SequelizeModule.forFeature([RentModel, CarModel, UserModel])],
 	controllers: [StatisticsController],
 	providers: [StatisticsService],
 })

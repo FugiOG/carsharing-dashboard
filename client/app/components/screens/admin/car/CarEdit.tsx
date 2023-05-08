@@ -50,6 +50,16 @@ const CarEdit: FC = () => {
 									/>
 								</label>
 								<label>
+									<span>Model</span>
+									<Field
+										{...register('model', {
+											required: 'Model is required!',
+										})}
+										placeholder="Model"
+										error={errors.model}
+									/>
+								</label>
+								<label>
 									<span>Full price</span>
 									<Field
 										{...register('fullPrice', {

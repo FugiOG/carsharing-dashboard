@@ -30,7 +30,7 @@ const CarList: FC = () => {
 			/>
 			<AdminTable
 				isLoading={isLoading}
-				headerItems={['Brand', 'Full price', 'Rental price']}
+				headerItems={['Brand', 'Model', 'Full price', 'Rental price']}
 				removeHandler={deleteAsync}
 				tableItems={data || []}
 			/>

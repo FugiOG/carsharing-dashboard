@@ -6,6 +6,9 @@ export class CarModel extends Model<CarModel> {
 	@Column
 	brand: string
 
+	@Column
+	model: string
+
 	@Column({ defaultValue: 0 })
 	fullPrice: number
 
