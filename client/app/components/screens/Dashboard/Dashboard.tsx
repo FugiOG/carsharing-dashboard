@@ -14,8 +14,10 @@ const Dashboard: FC<IDashboard> = ({ cars }) => {
 		<>
 			<Meta title="Dashboard" />
 			<Heading title="Dashboard" />
-			<MainStatistic />
-			<MiddleStatistics />
+			<div style={{ marginTop: '20px' }}>
+				<MainStatistic />
+				<MiddleStatistics />
+			</div>
 			{/* {cars.length ? cars.map()} */}
 		</>
 	)

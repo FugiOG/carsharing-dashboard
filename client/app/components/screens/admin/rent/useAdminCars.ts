@@ -8,7 +8,10 @@ export const useAdminCars = () => {
 	const carData = useQuery(['List of cars'], () => CarService.getAll(), {
 		select: ({ data }) =>
 			data.map(
-				(car): IOption => ({ value: car.id, label: `${car.brand} | ${car.id}` })
+				(car): IOption => ({
+					value: car.id,
+					label: `${car.brand} ${car.model} | ${car.id}`,
+				})
 			),
 	})
 

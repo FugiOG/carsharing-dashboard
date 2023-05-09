@@ -20,7 +20,6 @@ export const useRentEdit = (setValue: UseFormSetValue<IRentEditInput>) => {
 		() => RentService.getById(rentId),
 		{
 			onSuccess({ data }) {
-				console.log(moment().format('YYYY-MM-DD'))
 				getKeys(data).forEach((key) => {
 					if (key === 'issueDate' || key === 'returnDate') {
 						if (data[key] === null) {

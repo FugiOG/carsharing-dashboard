@@ -10,12 +10,14 @@ const TotalIncome: FC<{ totalIncome: number }> = ({ totalIncome }) => {
 	return (
 		<div className={styles.income}>
 			<ProgressBar percent={Math.round((totalIncome * 100) / 500000)} />
-			<div className={styles.icon}>
-				<MaterialIcon name="MdQueryStats" />
-			</div>
-			<div className={styles.name}>Total income</div>
-			<div className={styles.total}>
-				₽ <AnimatedCounter to={totalIncome} />
+			<div className={styles.info}>
+				<div className={styles.icon}>
+					<MaterialIcon name="MdQueryStats" />
+				</div>
+				<div className={styles.name}>Total income</div>
+				<div className={styles.total}>
+					₽ <AnimatedCounter to={totalIncome} />
+				</div>
 			</div>
 		</div>
 	)

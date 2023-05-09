@@ -31,7 +31,7 @@ const RentList: FC = () => {
 				isLoading={isLoading}
 				headerItems={[
 					'Rent id',
-					'Car brand',
+					'Car',
 					'User email',
 					'Cost',
 					'Rating',

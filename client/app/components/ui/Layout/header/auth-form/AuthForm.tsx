@@ -43,30 +43,6 @@ const AuthForm: FC = () => {
 
 	const { login, logout, register: registerUser } = useActions()
 
-	// const { mutate: loginSync } = useMutation(
-	// 	['login'],
-	// 	(data: IAuthFields) => AuthService.login(data.email, data.password),
-	// 	{
-	// 		onSuccess: (data) => {
-	// 			if (setUser) setUser(data.user)
-	// 			setIsShow(false)
-	// 			reset()
-	// 		},
-	// 	}
-	// )
-
-	// const { mutate: registerSync } = useMutation(
-	// 	['register'],
-	// 	(data: IAuthFields) => AuthService.register(data.email, data.password),
-	// 	{
-	// 		onSuccess: (data) => {
-	// 			if (setUser) setUser(data.user)
-	// 			setIsShow(false)
-	// 			reset()
-	// 		},
-	// 	}
-	// )
-
 	const onSubmit: SubmitHandler<IAuthFields> = (data) => {
 		if (type === 'login') login(data)
 		if (type === 'register') registerUser(data)
