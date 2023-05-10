@@ -23,7 +23,7 @@ export class UserController {
 	@Get('profile')
 	@Auth()
 	async getProfile(@User('id') id: string) {
-		return this.userService.byId(id)
+		return this.userService.getProfile(id)
 	}
 
 	@UsePipes(new ValidationPipe())

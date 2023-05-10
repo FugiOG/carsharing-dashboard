@@ -19,13 +19,20 @@ const MiddleStatistics: FC = () => {
 		<div className={styles.wrapper}>
 			<SubHeading title="Middle Statistic" />
 			{isLoading ? (
-				<SkeletonLoader
-					count={2}
-					height={276}
-					width={260}
-					inline
-					style={{ margin: '20px' }}
-				/>
+				<div style={{ display: 'flex', justifyContent: 'center' }}>
+					<SkeletonLoader
+						count={1}
+						height={276}
+						width={260}
+						style={{ margin: '20px' }}
+					/>
+					<SkeletonLoader
+						count={1}
+						height={276}
+						width={688}
+						style={{ margin: '20px' }}
+					/>
+				</div>
 			) : data ? (
 				<div className={styles.items}>
 					<TotalIncome totalIncome={data.income} />

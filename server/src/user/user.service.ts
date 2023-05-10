@@ -20,6 +20,15 @@ export class UserService {
 		return user
 	}
 
+	async getProfile(id: string) {
+		const user = await this.userModel.findOne({
+			where: { id },
+			include: [{ all: true }],
+		})
+		if (!user) throw new NotFoundException('User not found')
+		return this.returnUserFields(user)
+	}
+
 	async getAll(searchTerm?: string) {
 		let options: WhereOptions<UserModel> = {}
 
@@ -64,5 +73,16 @@ export class UserService {
 
 	async delete(id: string) {
 		return this.userModel.destroy({ where: { id } })
+	}
+
+	returnUserFields(user: UserModel) {
+		return {
+			id: user.id,
+			email: user.email,
+			avatarPath: user.avatarPath,
+			name: user.name,
+			city: user.city,
+			isAdmin: user.isAdmin,
+		}
 	}
 }

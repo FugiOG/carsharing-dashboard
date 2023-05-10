@@ -9,6 +9,8 @@ import { validEmail } from '@/components/ui/Layout/header/auth-form/auth.constan
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 
+import Meta from '@/utils/meta/Meta'
+
 import styles from './Auth.module.scss'
 import { useAuthRedirect } from './useAuthRedirect'
 
@@ -21,7 +23,7 @@ const Auth: FC = () => {
 		formState: { errors },
 		handleSubmit,
 		reset,
-	} = useForm<IAuthFields>({ mode: 'onChange' })
+	} = useForm<IAuthFields>({ mode: 'onSubmit' })
 
 	const { login, logout, register: registerUser } = useActions()
 
@@ -31,6 +33,7 @@ const Auth: FC = () => {
 	}
 	return (
 		<div className={styles.wrapper}>
+			<Meta title="auth" />
 			<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 				<div className={styles.heading}>Authentication</div>
 				<Field

@@ -4,7 +4,7 @@ import { IInitialState } from '@/shared/interfaces/user.interface'
 
 import { getStoreLocal } from '@/utils/local-storage'
 
-import { login, logout, register } from './user.actions'
+import { login, logout, register, updateUserData } from './user.actions'
 
 const initialState: IInitialState = {
 	user: getStoreLocal('user'),
@@ -40,6 +40,17 @@ export const userSlice = createSlice({
 				state.user = null
 			})
 			.addCase(logout.fulfilled, (state) => {
+				state.isLoading = false
+				state.user = null
+			})
+			.addCase(updateUserData.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(updateUserData.fulfilled, (state, { payload }) => {
+				state.isLoading = false
+				state.user = payload
+			})
+			.addCase(updateUserData.rejected, (state) => {
 				state.isLoading = false
 				state.user = null
 			})

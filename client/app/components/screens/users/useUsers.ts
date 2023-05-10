@@ -1,12 +1,11 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
-import { ChangeEvent, use, useMemo, useState } from 'react'
+import { ChangeEvent, useMemo, useState } from 'react'
 
 import { ITableItem } from '@/components/ui/admin-table/admin-table.interface'
 
 import { useDebounce } from '@/hooks/useDebounce'
 
-import { CarService } from '@/services/car.service'
 import { UserService } from '@/services/user.service'
 
 export const useUsers = () => {
@@ -41,7 +40,7 @@ export const useUsers = () => {
 
 	const { mutateAsync: deleteAsync } = useMutation(
 		['delete user'],
-		(carId: string) => CarService.deleteCar(carId),
+		(carId: string) => UserService.deleteUser(carId),
 		{
 			onSuccess: () => {
 				queryData.refetch()

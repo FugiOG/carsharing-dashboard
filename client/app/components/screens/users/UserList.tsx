@@ -12,7 +12,7 @@ const UserList: FC = () => {
 	const { handleSearch, searchTerm, isLoading, data, deleteAsync } = useUsers()
 	return (
 		<>
-			<Meta title="users" />
+			<Meta title="Users" />
 			<Heading title="Users" />
 
 			<AdminHeader heandleSearch={handleSearch} searchTerm={searchTerm} />

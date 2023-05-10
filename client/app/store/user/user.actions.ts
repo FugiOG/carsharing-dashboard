@@ -1,11 +1,13 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import { PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
 
 import {
 	IAuthResponse,
 	IEmailPassword,
+	IUser,
 } from '@/shared/interfaces/user.interface'
 
 import { AuthService } from '@/services/auth/auth.service'
+import { UserService } from '@/services/user.service'
 
 export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	'auth/register',
@@ -27,6 +29,18 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 			return response
 		} catch (error) {
 			return thunkApi.rejectWithValue(error)
+		}
+	}
+)
+
+export const updateUserData = createAsyncThunk<IUser, void>(
+	'user/update',
+	async (_, thunkApi) => {
+		try {
+			const response = await UserService.getProfileAndUpdateStorage()
+			return response
+		} catch (error) {
+			return thunkApi.rejectWithValue(error) as any
 		}
 	}
 )

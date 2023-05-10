@@ -1,6 +1,14 @@
 import axios from 'api/interceptor'
+import Cookies from 'js-cookie'
 
-import { IUser, UserDto } from '@/shared/interfaces/user.interface'
+import {
+	IAuthResponse,
+	IProfileInput,
+	IUser,
+	UserDto,
+} from '@/shared/interfaces/user.interface'
+
+import { saveToStorage } from './auth/auth.helper'
 
 export const UserService = {
 	async getAll(searchTerm?: string) {
@@ -11,6 +19,13 @@ export const UserService = {
 				  }
 				: {},
 		})
+	},
+
+	async getProfileAndUpdateStorage() {
+		const response = await axios.get<IUser>('/user/profile')
+		const accessToken = Cookies.get('accessToken') || ''
+		saveToStorage({ user: response.data, accessToken })
+		return response.data
 	},
 
 	async getProfile() {
@@ -25,11 +40,11 @@ export const UserService = {
 		return axios.delete(`user/${id}`)
 	},
 
-	async updateProfile(data: UserDto) {
+	async updateProfile(data: IProfileInput) {
 		return axios.put<string>('user/profile', data)
 	},
 
 	async updateUser(id: string, data: UserDto) {
-		return axios.put<string>(`user/${id}`, data)
+		return axios.put<IUser>(`user/${id}`, data)
 	},
 }

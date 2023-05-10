@@ -22,10 +22,7 @@ export interface UserDto
 		'name' | 'email' | 'avatarPath' | 'city' | 'isAdmin' | 'password'
 	> {}
 
-// export interface IUserState {
-// 	email: string
-// 	isAdmin: boolean
-// }
+export interface IProfileInput extends Omit<UserDto, 'isAdmin'> {}
 
 export interface IInitialState {
 	user: IUser | null

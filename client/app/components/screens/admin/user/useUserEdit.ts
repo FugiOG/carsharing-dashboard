@@ -2,6 +2,11 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 import { SubmitHandler, UseFormSetValue } from 'react-hook-form'
 
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
+
+import { IUser } from '@/shared/interfaces/user.interface'
+
 import { UserService } from '@/services/user.service'
 
 import { getKeys } from '@/utils/object/getKeys'
@@ -11,7 +16,9 @@ import { IUserEditInput } from './user-edit.interface'
 export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
 	const { push, query } = useRouter()
 
+	const { updateUserData } = useActions()
 	const UserId = String(query.id)
+	const { user } = useAuth()
 
 	const { isLoading } = useQuery(
 		['User', UserId],
@@ -30,8 +37,11 @@ export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
 		['Update user'],
 		(data: IUserEditInput) => UserService.updateUser(UserId, data),
 		{
-			onSuccess: () => {
+			onSuccess: (data) => {
 				push('/manage/users')
+				if (user?.id === data.data.id) {
+					updateUserData()
+				}
 			},
 		}
 	)

@@ -24,7 +24,7 @@ const AdminTable: FC<IAdminTable> = ({
 	tableItems,
 }) => {
 	return (
-		<motion.div {...FADE_IN(0.5, 1, 0.3)}>
+		<motion.div {...FADE_IN(0.5, 1, 0.3)} className={styles.wrapper}>
 			<AdminTableHeader tabelItems={headerItems} />
 
 			{isLoading ? (

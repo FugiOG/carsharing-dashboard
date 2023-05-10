@@ -7,7 +7,7 @@ const SkeletonLoader: FC<SkeletonProps> = (rest) => {
 	return (
 		<SkeletonTheme baseColor="#CCCDCE" highlightColor="#E7DFEA">
 			<p>
-				<Skeleton {...rest} />
+				<Skeleton {...rest} borderRadius={20} />
 			</p>
 		</SkeletonTheme>
 	)

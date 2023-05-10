@@ -9,7 +9,7 @@ import styles from './TotalIncome.module.scss'
 const TotalIncome: FC<{ totalIncome: number }> = ({ totalIncome }) => {
 	return (
 		<div className={styles.income}>
-			<ProgressBar percent={Math.round((totalIncome * 100) / 500000)} />
+			<ProgressBar percent={Math.round((totalIncome * 100) / 600000)} />
 			<div className={styles.info}>
 				<div className={styles.icon}>
 					<MaterialIcon name="MdQueryStats" />
