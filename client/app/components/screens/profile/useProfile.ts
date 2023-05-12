@@ -7,6 +7,8 @@ import { IProfileInput } from '@/shared/interfaces/user.interface'
 
 import { UserService } from '@/services/user.service'
 
+import { errorToast, successToast } from '@/utils/toast/toasts'
+
 export const useProfile = (setValue: UseFormSetValue<IProfileInput>) => {
 	const { updateUserData } = useActions()
 	const { isLoading } = useQuery(['profile'], () => UserService.getProfile(), {
@@ -22,8 +24,12 @@ export const useProfile = (setValue: UseFormSetValue<IProfileInput>) => {
 		['Update profile'],
 		(data: IProfileInput) => UserService.updateProfile(data),
 		{
+			onError: (error) => {
+				errorToast(error)
+			},
 			onSuccess() {
 				updateUserData()
+				successToast('Profile successfully updated')
 			},
 		}
 	)

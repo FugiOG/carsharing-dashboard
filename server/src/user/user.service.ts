@@ -47,13 +47,13 @@ export class UserService {
 
 	async update(id: string, dto: UserDto) {
 		const user = await this.byId(id)
-		const dynamParam: any = {}
 		const isSameUser = await this.userModel.findOne({
 			where: { email: dto.email },
 		})
 		if (isSameUser && String(id) === isSameUser.id) {
 			return new NotFoundException('Email busy')
 		}
+		const dynamParam: any = {}
 		if (dto.password) {
 			const salt = await genSalt(10)
 			dynamParam.password = await hash(dto.password, salt)

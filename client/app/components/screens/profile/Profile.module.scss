@@ -1,0 +1,63 @@
+.form-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.form {
+		background-color: #fff;
+		margin-top: 3rem;
+		max-width: 800px;
+		width: 480px;
+		padding: 10px 20px;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.fields {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: space-between;
+
+			.updInput {
+				border: 1px solid #ccc;
+				transition: all 0.2s ease-in;
+				&:focus {
+					border: 1px solid #6068ec;
+				}
+			}
+			> label {
+				display: block;
+				width: 70%;
+				> div {
+					width: 100%;
+				}
+
+				> span {
+					font-size: 0.75rem;
+					font-weight: 400;
+					line-height: 1rem;
+					text-transform: uppercase;
+					opacity: 0.8;
+					display: block;
+					margin-bottom: 0.25rem;
+				}
+			}
+		}
+		.select {
+			position: relative;
+			height: 97px;
+			width: 70%;
+			z-index: 20;
+		}
+		.updateBtn {
+			margin-top: 30px;
+			margin-bottom: 15px;
+			height: 40px;
+			width: 100px;
+			font-size: 20px;
+			font-weight: 500;
+		}
+	}
+}

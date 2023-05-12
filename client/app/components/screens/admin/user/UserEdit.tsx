@@ -81,7 +81,7 @@ const UserEdit: FC = () => {
 										/>
 									)}
 									rules={{
-										required: 'Please select at least one car!',
+										required: 'Please select at least one city!',
 									}}
 								/>
 								<Controller

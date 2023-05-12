@@ -18,9 +18,10 @@ import { AuthService } from '@/services/auth/auth.service'
 
 import { FADE_IN, menuAnimation } from '@/utils/animation/fade'
 
+import { IAuthFields } from '../../../../screens/auth/auth-form.interface'
+import { validEmail } from '../../../../screens/auth/auth.constants'
+
 import styles from './AuthForm.module.scss'
-import { IAuthFields } from './auth-form.interface'
-import { validEmail } from './auth.constants'
 
 const AuthForm: FC = () => {
 	const { ref, isShow, setIsShow } = useOutside(false)

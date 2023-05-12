@@ -25,6 +25,7 @@ export const useUsers = () => {
 							user.id,
 							user.email,
 							user.name,
+							user.city,
 							user.isAdmin ? 'true' : 'false',
 						],
 					})

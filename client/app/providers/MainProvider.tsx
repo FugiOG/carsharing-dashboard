@@ -1,6 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { FC } from 'react'
 import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Layout from '@/components/ui/Layout/Layout'
 
@@ -25,6 +27,18 @@ const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
 				<Layout>
 					<AuthProvider Component={Component}>{children}</AuthProvider>
 				</Layout>
+				<ToastContainer
+					position="top-right"
+					autoClose={3000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					theme="light"
+				/>
 			</QueryClientProvider>
 		</Provider>
 	)

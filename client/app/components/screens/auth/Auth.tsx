@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { IAuthFields } from '@/components/screens/auth/auth-form.interface'
+import { validEmail } from '@/components/screens/auth/auth.constants'
 import Button from '@/components/ui/Button/Button'
 import Field from '@/components/ui/Field/Field'
-import { IAuthFields } from '@/components/ui/Layout/header/auth-form/auth-form.interface'
-import { validEmail } from '@/components/ui/Layout/header/auth-form/auth.constants'
 
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'

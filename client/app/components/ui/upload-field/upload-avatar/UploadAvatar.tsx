@@ -1,9 +1,10 @@
 import cn from 'classnames'
 import Image from 'next/image'
-import { CSSProperties, FC, useRef } from 'react'
+import { CSSProperties, FC, MouseEvent, useRef } from 'react'
 import { FieldError } from 'react-hook-form'
 
 import SkeletonLoader from '../../SkeletonLoader'
+import MaterialIcon from '../../icons/MaterialIcon'
 import { useUpload } from '../useUpload'
 
 import styles from './UploadAvatar.module.scss'
@@ -12,7 +13,6 @@ export interface IUploadField {
 	folder?: string
 	value?: string
 	onChange: (...event: any[]) => void
-	placeholder: string
 	error?: FieldError
 	style?: CSSProperties
 	isNoImage?: boolean
@@ -24,12 +24,12 @@ const UploadField: FC<IUploadField> = ({
 	onChange,
 	error,
 	isNoImage = false,
-	placeholder,
 	style,
 }) => {
 	const inputRef = useRef<HTMLInputElement>(null)
 	const { isLoading, uploadFile } = useUpload(onChange, folder)
-	const handlePick = () => {
+	const handlePick = (e: MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault()
 		inputRef.current?.click()
 	}
 	return (
@@ -47,16 +47,23 @@ const UploadField: FC<IUploadField> = ({
 						{isLoading ? (
 							<SkeletonLoader
 								count={1}
-								style={{ width: '100%', height: '100%' }}
+								style={{
+									width: '3.5rem',
+									height: '3.5rem',
+								}}
+								borderRadius={50}
 							/>
 						) : (
 							value && (
 								<button
-									onClick={() => {
+									onClick={(e) => {
 										console.log('ffffff')
-										handlePick()
+										handlePick(e)
 									}}
 								>
+									<div className={styles.plus}>
+										<MaterialIcon name="MdOutlineCloudUpload" />
+									</div>
 									<Image alt="" src={value} fill unoptimized />
 								</button>
 							)

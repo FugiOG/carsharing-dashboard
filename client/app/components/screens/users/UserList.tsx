@@ -18,7 +18,7 @@ const UserList: FC = () => {
 			<AdminHeader heandleSearch={handleSearch} searchTerm={searchTerm} />
 			<AdminTable
 				isLoading={isLoading}
-				headerItems={['User id', 'Email', 'Name', 'Is admin']}
+				headerItems={['User id', 'Email', 'Name', 'City', 'Is admin']}
 				removeHandler={deleteAsync}
 				tableItems={data || []}
 			/>

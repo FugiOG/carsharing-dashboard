@@ -9,13 +9,17 @@ import {
 import { AuthService } from '@/services/auth/auth.service'
 import { UserService } from '@/services/user.service'
 
+import { errorToast, successToast } from '@/utils/toast/toasts'
+
 export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	'auth/register',
 	async ({ email, password }, thunkApi) => {
 		try {
 			const response = await AuthService.register(email, password)
+			successToast('Register success')
 			return response
 		} catch (error) {
+			errorToast(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	}
@@ -26,8 +30,10 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	async ({ email, password }, thunkApi) => {
 		try {
 			const response = await AuthService.login(email, password)
+			successToast('Login success')
 			return response
 		} catch (error) {
+			errorToast(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	}
