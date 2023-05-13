@@ -9,4 +9,5 @@ export interface IMenuItem {
 	title: string
 	icon: TypeMaterialIconName
 	link: string
+	isAdmin?: boolean
 }

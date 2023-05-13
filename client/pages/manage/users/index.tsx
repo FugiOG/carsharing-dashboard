@@ -6,5 +6,5 @@ const UsersPage: NextPageAuth = () => {
 	return <UserList />
 }
 
-UsersPage.isOnlyAdmin = false
+UsersPage.isOnlyAdmin = true
 export default UsersPage

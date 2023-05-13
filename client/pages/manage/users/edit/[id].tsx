@@ -6,6 +6,6 @@ const UserEditPage: NextPageAuth = () => {
 	return <UserEdit />
 }
 
-UserEditPage.isOnlyAdmin = false
+UserEditPage.isOnlyAdmin = true
 
 export default UserEditPage

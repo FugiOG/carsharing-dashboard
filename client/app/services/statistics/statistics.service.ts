@@ -4,7 +4,7 @@ import { IStatisticItem } from '@/components/ui/statistic-item/statistic-item.in
 
 import { IUser, UserDto } from '@/shared/interfaces/user.interface'
 
-import { IMiddleStatistics } from './statistics.interface'
+import { IMiddleStatistics, IUserStatistic } from './statistics.interface'
 
 export const StatisticsService = {
 	async getMain() {
@@ -15,6 +15,11 @@ export const StatisticsService = {
 	async getMiddle() {
 		return axios
 			.get<IMiddleStatistics>('/statistics/middle')
+			.then((data) => data.data)
+	},
+	async getUser() {
+		return axios
+			.get<IUserStatistic>('/statistics/user')
 			.then((data) => data.data)
 	},
 }

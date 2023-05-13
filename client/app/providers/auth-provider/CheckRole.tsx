@@ -1,5 +1,3 @@
-'use client'
-
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
 
@@ -9,7 +7,7 @@ import { TypeComponentAuthFields } from '@/shared/interfaces/auth.interface'
 
 const CheckRole: FC<TypeComponentAuthFields> = ({
 	children,
-	Component: { isOnlyAdmin },
+	Component: { isOnlyAdmin, isOnlyUser },
 }) => {
 	const { user: currentUser } = useAuth()
 	const [user, setUser] = useState<any>(currentUser)
@@ -22,14 +20,14 @@ const CheckRole: FC<TypeComponentAuthFields> = ({
 	const Children = () => <>{children}</>
 	if (user?.isAdmin) return <Children />
 
-	const isUser = user && !user.isAdmin
-
-	if (isOnlyAdmin && isUser) {
+	if (isOnlyAdmin) {
 		router.pathname !== '/404' && router.replace('/404')
 		return null
 	}
 
-	if (isUser) return <Children />
+	const isUser = user && !user?.isAdmin
+
+	if (isUser && isOnlyUser) return <Children />
 	else {
 		router.pathname !== '/auth' && router.replace('/auth')
 		return null

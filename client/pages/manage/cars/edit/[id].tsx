@@ -8,6 +8,6 @@ const CarEditPage: NextPageAuth = () => {
 	return <CarEdit />
 }
 
-CarEditPage.isOnlyAdmin = false
+CarEditPage.isOnlyAdmin = true
 
 export default CarEditPage

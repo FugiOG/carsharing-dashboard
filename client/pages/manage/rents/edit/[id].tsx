@@ -6,6 +6,6 @@ const RentEditPage: NextPageAuth = () => {
 	return <RentEdit />
 }
 
-RentEditPage.isOnlyAdmin = false
+RentEditPage.isOnlyAdmin = true
 
 export default RentEditPage

@@ -16,7 +16,7 @@ import { KeysInStat } from '@/services/statistics/statistics.interface'
 
 import styles from './RentsChart.module.scss'
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip)
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Title)
 export const options = {
 	responsive: true,
 	scales: {
@@ -49,6 +49,18 @@ export const options = {
 	borderSkipped: false,
 	barThickness: 44,
 	plugins: {
+		title: {
+			display: true,
+			text: 'Rents by month',
+			color: '#404040',
+			padding: {
+				bottom: 20,
+			},
+			font: {
+				size: 26,
+				weight: 700,
+			},
+		},
 		tooltip: {
 			bodyColor: '#222',
 			backgroundColor: '#fff',

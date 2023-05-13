@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import { FC, memo, useEffect, useState } from 'react'
 
+import { useAuth } from '@/hooks/useAuth'
+
 import {
 	sidebarAnimation,
 	sidebarButtonAnimation,
@@ -12,14 +14,20 @@ import Logo from '../header/Logo'
 
 import styles from './Sidebar.module.scss'
 import { MenuData } from './menu.data'
-import Menu from './menu/Menu'
+
+// import Menu from './menu/Menu'
 
 const DynamicOtherMenu = dynamic(() => import('./other/OtherMenu'), {
 	ssr: false,
 })
 
+const DynamicMenu = dynamic(() => import('./menu/Menu'), {
+	ssr: false,
+})
+
 const Sidebar: FC = () => {
 	const [isShow, setIsShow] = useState(true)
+
 	useEffect(() => {
 		console.log('isShow')
 		return () => console.log('unmount')
@@ -47,8 +55,7 @@ const Sidebar: FC = () => {
 							</button>
 						</motion.div>
 					</div>
-
-					<Menu items={MenuData.items} title={MenuData.title} />
+					<DynamicMenu items={MenuData.items} title={MenuData.title} />
 					<DynamicOtherMenu />
 				</div>
 			</div>

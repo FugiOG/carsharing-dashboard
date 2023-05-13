@@ -8,11 +8,12 @@ import { useAuth } from '@/hooks/useAuth'
 
 import { TypeComponentAuthFields } from '@/shared/interfaces/auth.interface'
 
-import CheckRole from './CheckRole'
-
+const DynamicCheckRole = dynamic(() => import('./CheckRole'), {
+	ssr: false,
+})
 const AuthProvider: FC<TypeComponentAuthFields> = ({
 	children,
-	Component: { isOnlyAdmin },
+	Component: { isOnlyAdmin, isOnlyUser },
 }) => {
 	const { user: currentUser } = useAuth()
 	const [user, setUser] = useState<any>(currentUser)
@@ -33,10 +34,12 @@ const AuthProvider: FC<TypeComponentAuthFields> = ({
 		}
 	}, [pathname])
 
-	return !isOnlyAdmin ? (
+	return !isOnlyAdmin && !isOnlyUser ? (
 		<>{children}</>
 	) : (
-		<CheckRole Component={{ isOnlyAdmin }}>{children}</CheckRole>
+		<DynamicCheckRole Component={{ isOnlyAdmin, isOnlyUser }}>
+			{children}
+		</DynamicCheckRole>
 	)
 }
 

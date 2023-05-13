@@ -1,9 +1,11 @@
+import Dashboard from '@/components/screens/Dashboard/Dashboard'
+
 import { NextPageAuth } from '@/shared/interfaces/auth.interface'
 
 const DashboardPage: NextPageAuth = () => {
-	return <div>DashboardPage</div>
+	return <Dashboard />
 }
 
-export default DashboardPage
-
 DashboardPage.isOnlyAdmin = true
+
+export default DashboardPage

@@ -79,4 +79,51 @@ export class StatisticsService {
 			rentsByMonth,
 		}
 	}
+
+	async getUserStatistic(id: string) {
+		const countRents = await this.rentModel
+			.findAll({
+				where: { userId: id },
+			})
+			.then((data) => data.length)
+
+		const latestSpending = await this.rentModel
+			.findAll({
+				order: [['returnDate', 'DESC']],
+				where: { userId: id },
+			})
+			.then((data) => data[0].cost)
+
+		const rentsByMonth = {}
+		const rents = await this.rentModel.findAll({
+			order: [['returnDate', 'ASC']],
+			include: [{ all: true }],
+			where: { userId: id },
+		})
+		rents.forEach((rent) => {
+			const returnMonth = moment.unix(rent.returnDate).format('MMM')
+			if (!rentsByMonth[returnMonth]) {
+				rentsByMonth[returnMonth] = []
+			}
+			rentsByMonth[returnMonth].push(rent)
+		})
+
+		return {
+			stat: [
+				{
+					id: 1,
+					name: 'Number of rentals',
+					value: countRents,
+					icon: 'MdCarRental',
+				},
+				{
+					id: 2,
+					name: 'Latest spending',
+					value: latestSpending,
+					icon: 'MdSupervisorAccount',
+				},
+			],
+			rentsByMonth,
+		}
+	}
 }

@@ -5,11 +5,9 @@ import { FaRegUserCircle } from 'react-icons/fa'
 import { useAuth } from '@/hooks/useAuth'
 
 import UserAvatar from '../../user-avatar/UserAvatar'
-import Sidebar from '../sidebar/Sidebar'
 
 import styles from './Header.module.scss'
 import Logo from './Logo'
-import AuthForm from './auth-form/AuthForm'
 
 const Header: FC = () => {
 	const { user: currentUser } = useAuth()
@@ -24,7 +22,7 @@ const Header: FC = () => {
 				{user ? (
 					<UserAvatar
 						title="dashboard"
-						link="/dashboard"
+						link="/profile"
 						avatarPath={user.avatarPath || ''}
 					/>
 				) : (

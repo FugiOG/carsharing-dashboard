@@ -3,6 +3,7 @@ import { PropsWithChildren } from 'react'
 
 export type TypeRoles = {
 	isOnlyAdmin?: boolean
+	isOnlyUser?: boolean
 }
 
 export type NextPageAuth<T = {}> = NextPage<T> & TypeRoles

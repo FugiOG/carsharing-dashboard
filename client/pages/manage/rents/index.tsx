@@ -6,5 +6,5 @@ const RentsPage: NextPageAuth = () => {
 	return <RentList />
 }
 
-RentsPage.isOnlyAdmin = false
+RentsPage.isOnlyAdmin = true
 export default RentsPage

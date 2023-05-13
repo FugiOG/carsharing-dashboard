@@ -8,5 +8,5 @@ const CarsPage: NextPageAuth = () => {
 	return <CarList />
 }
 
-CarsPage.isOnlyAdmin = false
+CarsPage.isOnlyAdmin = true
 export default CarsPage
