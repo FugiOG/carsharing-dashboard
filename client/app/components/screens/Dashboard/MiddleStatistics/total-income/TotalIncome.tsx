@@ -16,7 +16,7 @@ const TotalIncome: FC<{ totalIncome: number }> = ({ totalIncome }) => {
 				</div>
 				<div className={styles.name}>Total income</div>
 				<div className={styles.total}>
-					₽ <AnimatedCounter to={totalIncome} />
+					<AnimatedCounter to={totalIncome} /> ₽
 				</div>
 			</div>
 		</div>

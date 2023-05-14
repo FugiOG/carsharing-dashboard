@@ -9,11 +9,13 @@ import { StatisticsService } from '@/services/statistics/statistics.service'
 
 import Meta from '@/utils/meta/Meta'
 
+import RentsChart from '../Dashboard/MiddleStatistics/rents-chart/RentsChart'
+
 import styles from './UserStatistic.module.scss'
 
 const UserStatistic: FC = () => {
 	const { data, isLoading } = useQuery(
-		['get main statistics'],
+		['get user statistics'],
 		() => StatisticsService.getUser(),
 		{}
 	)
@@ -23,33 +25,44 @@ const UserStatistic: FC = () => {
 			<Heading title="User statistic" />
 			<div className={styles.wrapper}>
 				{isLoading ? (
-					<div style={{ display: 'flex', flexDirection: 'column' }}>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+						}}
+					>
 						<SkeletonLoader
-							count={1}
+							count={2}
 							height={130}
 							width={260}
-							inline
-							style={{ margin: '20px' }}
+							style={{ margin: '10px 20px' }}
 						/>
 						<SkeletonLoader
 							count={1}
-							height={130}
-							width={260}
-							inline
-							style={{ margin: '20px' }}
+							height={407}
+							width={688}
+							style={{ margin: '10px' }}
 						/>
 					</div>
 				) : data?.stat?.length ? (
 					<div className={styles.items}>
-						{data.stat.map((item) => (
-							<StatisticItem
-								key={item.id}
-								id={item.id}
-								icon={item.icon}
-								name={item.name}
-								value={item.value}
-							/>
-						))}
+						<div className={styles.numStat}>
+							{data.stat.map((item) => {
+								const isCurrency = item.id === 2
+								return (
+									<StatisticItem
+										key={item.id}
+										id={item.id}
+										icon={item.icon}
+										name={item.name}
+										value={item.value}
+										isCurrency={isCurrency}
+									/>
+								)
+							})}
+						</div>
+						<RentsChart rents={data.rentsByMonth} />
 					</div>
 				) : (
 					<div>Stat not found</div>

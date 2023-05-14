@@ -16,6 +16,7 @@ const StatisticItem: FC<IStatisticItem> = (item) => {
 			<div className={styles.name}>{item.name}</div>
 			<div className={styles.value}>
 				<AnimatedCounter to={item.value} />
+				{item.isCurrency ? ' ₽' : ''}
 			</div>
 		</div>
 	)

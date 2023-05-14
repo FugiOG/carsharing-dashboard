@@ -37,6 +37,7 @@ const UploadField: FC<IUploadField> = ({
 			<div className={styles.uploadFlex}>
 				<input
 					type="file"
+					accept=".jpg,.jpeg,.png"
 					onChange={uploadFile}
 					className={styles.hidden}
 					ref={inputRef}
@@ -64,7 +65,13 @@ const UploadField: FC<IUploadField> = ({
 									<div className={styles.plus}>
 										<MaterialIcon name="MdOutlineCloudUpload" />
 									</div>
-									<Image alt="" src={value} fill unoptimized />
+									<Image
+										alt=""
+										src={value}
+										fill
+										unoptimized
+										draggable={false}
+									/>
 								</button>
 							)
 						)}

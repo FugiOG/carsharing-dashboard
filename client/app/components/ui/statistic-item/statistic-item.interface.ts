@@ -5,4 +5,5 @@ export interface IStatisticItem {
 	icon: TypeMaterialIconName
 	name: string
 	value: number
+	isCurrency?: boolean
 }

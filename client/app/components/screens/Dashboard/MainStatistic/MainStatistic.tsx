@@ -22,13 +22,15 @@ const MainStatistic: FC = () => {
 		<div className={styles.wrapper}>
 			<SubHeading title="Main Statistic" />
 			{isLoading ? (
-				<SkeletonLoader
-					count={4}
-					height={130}
-					width={260}
-					inline
-					style={{ margin: '20px' }}
-				/>
+				<div style={{ display: 'flex', justifyContent: 'center' }}>
+					<SkeletonLoader
+						count={4}
+						height={130}
+						width={260}
+						inline
+						style={{ margin: '20px' }}
+					/>
+				</div>
 			) : data?.length ? (
 				<div className={styles.items}>
 					{data.map((item) => (

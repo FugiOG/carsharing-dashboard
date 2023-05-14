@@ -4,7 +4,6 @@ import * as moment from 'moment'
 import { col, fn } from 'sequelize'
 import { CarModel } from 'src/car/car.model'
 import { RentModel } from 'src/rent/rent.model'
-import { RentService } from 'src/rent/rent.service'
 import { UserModel } from 'src/user/user.model'
 import { IStatisticItem } from './statistics.interface'
 
@@ -120,7 +119,7 @@ export class StatisticsService {
 					id: 2,
 					name: 'Latest spending',
 					value: latestSpending,
-					icon: 'MdSupervisorAccount',
+					icon: 'MdAttachMoney',
 				},
 			],
 			rentsByMonth,

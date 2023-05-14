@@ -25,7 +25,7 @@ const Menu: FC<IMenu> = ({ items, title }) => {
 			</ul>
 		</div>
 	) : (
-		<h2>Pls Log in</h2>
+		<div className={styles.authMsg}>Plz autorize!</div>
 	)
 }
 
