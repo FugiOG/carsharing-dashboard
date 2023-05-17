@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FC, useEffect, useState } from 'react'
 import { FaRegUserCircle } from 'react-icons/fa'
@@ -9,6 +10,9 @@ import UserAvatar from '../../user-avatar/UserAvatar'
 import styles from './Header.module.scss'
 import Logo from './Logo'
 
+const DynamicTheme = dynamic(() => import('../../theme/Theme'), {
+	ssr: false,
+})
 const Header: FC = () => {
 	const { user: currentUser } = useAuth()
 	const [user, setUser] = useState<any>()
@@ -19,6 +23,7 @@ const Header: FC = () => {
 		<header className={styles.header}>
 			<Logo />
 			<div className={styles.wrapper}>
+				<DynamicTheme />
 				{user ? (
 					<UserAvatar
 						title="dashboard"

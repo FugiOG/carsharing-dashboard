@@ -1,7 +1,4 @@
-import { FC, PropsWithChildren } from 'react'
-
-import Meta from '@/utils/meta/Meta'
-import { IMeta } from '@/utils/meta/meta.interface'
+import { FC, PropsWithChildren, use, useEffect } from 'react'
 
 import styles from './Layout.module.scss'
 import Header from './header/Header'

@@ -1,3 +1,40 @@
+// Light Theme Colors
+$theme-light-background: #fff;
+$theme-light-background-secondary: #f2f2f2;
+$theme-light-border: #ccc;
+$theme-light-box-shadow: rgba(45, 8, 125, 0.2);
+$theme-light-text-default: #111;
+$theme-light-text-body: #444;
+$theme-light-text-secondary: #888;
+
+// Dark Theme Colors
+$theme-dark-background: #373737;
+$theme-dark-background-secondary: #2b2b2b;
+$theme-dark-border: #5b5b5b;
+$theme-dark-box-shadow: rgba(136, 122, 168, 0.441);
+$theme-dark-text-default: #fff;
+$theme-dark-text-body: rgba(#fff, 0.9);
+$theme-dark-text-secondary: rgba(#fff, 0.5);
+
+@mixin lightTheme {
+	--color-background: #{$theme-light-background};
+	--color-background-secondary: #{$theme-light-background-secondary};
+	--color-border: #{$theme-light-border};
+	--color-box-shadow: #{$theme-light-box-shadow};
+	--color-text-default: #{$theme-light-text-default};
+	--color-text-body: #{$theme-light-text-body};
+	--color-text-secondary: #{$theme-light-text-secondary};
+}
+@mixin darkTheme {
+	--color-background: #{$theme-dark-background};
+	--color-background-secondary: #{$theme-dark-background-secondary};
+	--color-border: #{$theme-dark-border};
+	--color-box-shadow: #{$theme-dark-box-shadow};
+	--color-text-default: #{$theme-dark-text-default};
+	--color-text-body: #{$theme-dark-text-body};
+	--color-text-secondary: #{$theme-dark-text-secondary};
+}
+
 :root {
 	--max-width: 1100px;
 	--border-radius: 12px;
@@ -6,6 +43,16 @@
 		'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
 	--primary: #6068ec;
+
+	@include lightTheme;
+}
+
+:root[data-theme='light'] {
+	@include lightTheme;
+}
+
+:root[data-theme='dark'] {
+	@include darkTheme;
 }
 
 * {
@@ -21,6 +68,7 @@ body {
 	background-color: #e7e9ea;
 	min-height: 100vh;
 	font-size: 1.12rem;
+
 	// line-height: 1.5rem;
 }
 

@@ -6,30 +6,31 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 18px;
-	border-bottom: 1px solid #ccc;
-	background-color: #fff;
+	border-bottom: 1px solid var(--color-border);
+	background-color: var(--color-background);
 	.logo {
 		margin-left: 8px;
 	}
 	.wrapper {
 		position: relative;
-		display: inline-flex;
-
+		display: flex;
+		align-items: center;
+		gap: 30px;
 		.button {
-			background: white;
+			background: var(--color-background);
 			border-radius: 50%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			font-size: x-large;
-			box-shadow: 0 4px 10px rgba(45, 8, 125, 0.2);
+			box-shadow: 0 4px 10px var(--color-box-shadow);
 			padding: 6px;
-			color: #353538;
+			color: var(--color-text-body);
 			transition: box-shadow 0.2s ease-in-out;
 			width: 40px;
 			height: 40px;
 			&:hover {
-				box-shadow: 0 4px 16px rgba(45, 8, 125, 0.3);
+				box-shadow: 0 4px 16px var(--color-box-shadow);
 			}
 		}
 	}
@@ -38,6 +39,7 @@
 .logo {
 	font-size: xx-large;
 	font-weight: 600;
+	color: var(--color-text-default);
 	> span {
 		color: var(--primary);
 	}
