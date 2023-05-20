@@ -6,7 +6,8 @@
 	justify-content: center;
 	.heading {
 		width: 100%;
-		color: #aeb4be;
+		color: var(--color-text-sidebar);
+		opacity: 0.7;
 		text-align: left;
 		font-size: 0.8rem;
 		font-weight: 500;
@@ -35,7 +36,7 @@
 			div {
 				padding: 8px 12px;
 				font-weight: 500;
-				color: #7e8490;
+				color: var(--color-text-sidebar);
 				font-size: 1.1rem;
 				width: 100%;
 				display: flex;
@@ -57,11 +58,11 @@
 
 .authMsg {
 	margin-top: 30px;
-	background: #f1f1f1;
+	background: var(--color-bg-authorize-msg);
 	text-align: center;
 	padding: 10px 0;
 	border-radius: 10px;
 	font-weight: 600;
-	color: #3d3d3dda;
+	color: var(--color-text-sidebar);
 	font-size: 22px;
 }

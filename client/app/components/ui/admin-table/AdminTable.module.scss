@@ -7,7 +7,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		background-color: #73737d;
+		// background-color: #73737d;
+		background-color: var(--color-table-item);
 		margin-top: 12px;
 		padding: 0 10px;
 		border-radius: 6px;
@@ -62,13 +63,13 @@
 		margin-top: 20px;
 	}
 
-	scrollbar-color: #6068ec #dddddd;
+	scrollbar-color: #6068ec var(--color-bg-scrollbar);
 	scrollbar-width: auto;
 	-webkit-overflow-scrolling: touch;
 	&::-webkit-scrollbar {
 		width: 12px;
 		height: 10px;
-		background-color: #d7d7d7;
+		background-color: var(--color-bg-scrollbar);
 		border-radius: 20px;
 	}
 

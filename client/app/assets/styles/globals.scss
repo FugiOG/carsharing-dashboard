@@ -1,38 +1,73 @@
+@import './react-select.scss';
+
 // Light Theme Colors
 $theme-light-background: #fff;
-$theme-light-background-secondary: #f2f2f2;
+$theme-light-background-secondary: #e7e9ea;
+
 $theme-light-border: #ccc;
+$theme-light-table-item: #73737d;
 $theme-light-box-shadow: rgba(45, 8, 125, 0.2);
 $theme-light-text-default: #111;
+$theme-light-bg-scrollbar: #d7d7d7;
+$theme-light-select-menu-bg: #fff;
+$theme-light-bg-field: #fff;
+
+$theme-light-text-sidebar: #7e8490;
+$theme-light-bg-authorize-msg: #f1f1f1;
+
 $theme-light-text-body: #444;
 $theme-light-text-secondary: #888;
+$theme-light-primary: #6068ec;
 
 // Dark Theme Colors
-$theme-dark-background: #373737;
+$theme-dark-background: #3d3d3d;
 $theme-dark-background-secondary: #2b2b2b;
+
 $theme-dark-border: #5b5b5b;
+$theme-dark-table-item: #67676f;
 $theme-dark-box-shadow: rgba(136, 122, 168, 0.441);
 $theme-dark-text-default: #fff;
+$theme-dark-bg-scrollbar: #a1a1a1;
+$theme-dark-select-menu-bg: #292a2e;
+$theme-dark-bg-field: #8f8f8f;
+
+$theme-dark-text-sidebar: #b9bfc6;
+$theme-dark-bg-authorize-msg: #4b4b4b;
 $theme-dark-text-body: rgba(#fff, 0.9);
 $theme-dark-text-secondary: rgba(#fff, 0.5);
+$theme-dark-primary: #6f75de;
 
 @mixin lightTheme {
 	--color-background: #{$theme-light-background};
 	--color-background-secondary: #{$theme-light-background-secondary};
 	--color-border: #{$theme-light-border};
+	--color-table-item: #{$theme-light-table-item};
 	--color-box-shadow: #{$theme-light-box-shadow};
+	--color-select-menu-bg: #{$theme-light-select-menu-bg};
 	--color-text-default: #{$theme-light-text-default};
+	--color-bg-scrollbar: #{$theme-light-bg-scrollbar};
+	--color-bg-field: #{$theme-light-bg-field};
+	--color-text-sidebar: #{$theme-light-text-sidebar};
+	--color-bg-authorize-msg: #{$theme-light-bg-authorize-msg};
 	--color-text-body: #{$theme-light-text-body};
 	--color-text-secondary: #{$theme-light-text-secondary};
+	--primary: #{$theme-light-primary};
 }
 @mixin darkTheme {
 	--color-background: #{$theme-dark-background};
 	--color-background-secondary: #{$theme-dark-background-secondary};
 	--color-border: #{$theme-dark-border};
+	--color-table-item: #{$theme-dark-table-item};
 	--color-box-shadow: #{$theme-dark-box-shadow};
+	--color-select-menu-bg: #{$theme-dark-select-menu-bg};
 	--color-text-default: #{$theme-dark-text-default};
+	--color-bg-scrollbar: #{$theme-dark-bg-scrollbar};
+	--color-bg-field: #{$theme-dark-bg-field};
+	--color-text-sidebar: #{$theme-dark-text-sidebar};
+	--color-bg-authorize-msg: #{$theme-dark-bg-authorize-msg};
 	--color-text-body: #{$theme-dark-text-body};
 	--color-text-secondary: #{$theme-dark-text-secondary};
+	--primary: #{$theme-dark-primary};
 }
 
 :root {
@@ -41,8 +76,6 @@ $theme-dark-text-secondary: rgba(#fff, 0.5);
 	--font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
 		'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
 		'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
-	--primary: #6068ec;
 
 	@include lightTheme;
 }
@@ -65,7 +98,7 @@ html,
 body {
 	max-width: 100vw;
 	overflow: hidden;
-	background-color: #e7e9ea;
+	background-color: var(--color-background-secondary);
 	min-height: 100vh;
 	font-size: 1.12rem;
 

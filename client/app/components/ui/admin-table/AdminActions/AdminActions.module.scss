@@ -5,15 +5,18 @@
 	gap: 20px;
 	margin-right: 10px;
 	button {
+		display: flex;
 		outline: none;
 		background: transparent;
 		height: 20px;
 		font-size: 20px;
 		color: #ffffff;
 		opacity: 0.8;
+		align-items: center;
 		transition: opacity 0.3s ease-in-out;
 		&:hover {
 			opacity: 1;
 		}
+
 	}
 }

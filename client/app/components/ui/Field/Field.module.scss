@@ -9,13 +9,15 @@
 		width: 100%;
 		height: 36px;
 		padding: 8px;
-		background-color: white;
+		background-color: var(--color-bg-field);
 		font-size: 16px;
 		border-radius: 10px;
 		box-sizing: border-box;
+		color: var(--color-text-body);
 		@include shadow();
 		&::placeholder {
-			color: #797979;
+			color: var(--color-text-secondary);
+			// color: #797979;
 		}
 	}
 }

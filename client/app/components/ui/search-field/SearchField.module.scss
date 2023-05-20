@@ -18,14 +18,14 @@
 		display: block;
 		width: 100%;
 		background-color: transparent;
-		color: #000;
+		color: var(--color-text-default);
 		font-size: 18px;
 		&::placeholder {
-			color: #646161e0;
+			color: #6d6a6ae0;
 		}
 	}
 	&:focus-within {
-		border-color: #66666c;
+		border-color: #6c6c72;
 
 		> svg {
 			color: #66666c;

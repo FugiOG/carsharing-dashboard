@@ -3,11 +3,11 @@
 	align-items: center;
 	justify-content: center;
 	.form {
-		background-color: #fff;
+		background-color: var(--color-background);
 		margin-top: 3rem;
 		max-width: 800px;
 		width: 700px;
-		padding: 10px 20px;
+		padding: 40px 30px;
 		border-radius: 10px;
 		display: flex;
 		flex-direction: column;
