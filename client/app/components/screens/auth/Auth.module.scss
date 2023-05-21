@@ -11,14 +11,14 @@
 			text-align: center;
 			font-size: 26px;
 			font-weight: 700;
-			color: #454546;
+			color: var(--color-text-default);
 			text-transform: capitalize;
 			padding: 5px 10px;
 			margin-bottom: 20px;
-			border-bottom: 1px solid #4545464f;
+			border-bottom: 1px solid var(--color-border);
 		}
-		background: #fff;
-		border: 1px solid #ccc;
+		background-color: var(--color-background);
+		border: 1px solid var(--color-border);
 		margin-top: 6rem;
 		max-width: 500px;
 		padding: 20px 30px;
@@ -30,14 +30,14 @@
 		z-index: 2;
 
 		input {
-			border: 1px solid #ccc;
+			border: 1px solid var(--color-border);
 		}
 		.register {
 			display: block;
 			text-align: center;
 			width: 100%;
 			font-size: 0.9rem;
-			color: #5c5b5b;
+			color: var(--color-text-default);
 		}
 		.button {
 			background: white;

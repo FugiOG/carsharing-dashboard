@@ -70,7 +70,7 @@ const CarEdit: FC = () => {
 									/>
 								</label>
 
-								<label>
+								<label style={{ marginTop: '40px' }}>
 									<span>Rental price</span>
 									<Field
 										{...register('rentalPrice', {

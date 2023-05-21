@@ -3,10 +3,10 @@
 	align-items: center;
 	justify-content: center;
 	.form {
-		background-color: #fff;
+		background-color: var(--color-background);
 		margin-top: 3rem;
-		max-width: 700px;
-		padding: 10px 20px;
+		max-width: 720px;
+		padding: 40px 30px;
 		border-radius: 10px;
 		display: flex;
 		flex-direction: column;
@@ -27,6 +27,7 @@
 				> span {
 					font-size: 0.75rem;
 					line-height: 1rem;
+					color: var(--color-text-default);
 					text-transform: uppercase;
 					opacity: 0.8;
 					display: block;

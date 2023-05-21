@@ -2,12 +2,12 @@
 	text-align: left;
 	margin-bottom: 20px;
 	position: relative;
-
+	color: var(--color-text-default);
 	input {
 		outline: none;
 		border: none;
 		background-color: transparent;
-		color: #000;
+		color: var(--color-text-default);
 		width: 100%;
 		margin: 0;
 	}

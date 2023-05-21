@@ -2,15 +2,16 @@
 
 .item {
 	position: relative;
-	background-color: #fafafa;
+	background-color: var(--color-bg-stat-item);
 	border-radius: 8px;
 	padding: 0.8rem 1rem;
 	padding-right: 26px;
 	min-width: fit-content;
 	width: 100%;
-	border-left: 2px solid #fff;
-	border-top: 2px solid #fff;
+	border-left: 2px solid var(--color-background);
+	border-top: 2px solid var(--color-background);
 	cursor: default;
+	color: var(--color-text-default);
 
 	&::before {
 		content: '';
@@ -19,7 +20,7 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 8px;
-		background-color: #bbbdd2ca;
+		background: var(--color-bg-stat-before);
 		left: 0;
 		bottom: -5px;
 		@include shadow(lg);

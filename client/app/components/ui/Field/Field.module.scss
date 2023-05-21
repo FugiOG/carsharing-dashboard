@@ -15,6 +15,7 @@
 		box-sizing: border-box;
 		color: var(--color-text-body);
 		@include shadow();
+		color-scheme: var(--color-scheme);
 		&::placeholder {
 			color: var(--color-text-secondary);
 			// color: #797979;

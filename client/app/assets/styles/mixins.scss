@@ -1,18 +1,18 @@
 @mixin shadow($size: 'md') {
 	@if $size == 'md' {
-		box-shadow: 0 4px 10px rgba(45, 8, 125, 0.2);
+		box-shadow: 0 4px 10px var(--color-box-shadow);
 		transition: box-shadow 0.2s ease-in-out;
 		&:hover,
 		&:focus {
-			box-shadow: 0 4px 16px rgba(45, 8, 125, 0.3);
+			box-shadow: 0 4px 16px var(--color-box-shadow-focus);
 		}
 	}
 	@if $size == 'lg' {
-		box-shadow: 0 10px 20px rgba(37, 12, 171, 0.3);
+		box-shadow: 0 10px 20px var(--color-box-shadow-lg);
 		transition: box-shadow 0.2s ease-in-out;
 		&:hover,
 		&:focus {
-			box-shadow: 0 10px 25px rgba(37, 12, 171, 0.35);
+			box-shadow: 0 10px 25px var(--color-box-shadow-lg-focus);
 		}
 	}
 }

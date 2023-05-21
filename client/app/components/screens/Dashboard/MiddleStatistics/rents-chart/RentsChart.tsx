@@ -25,7 +25,7 @@ const RentsChart: FC<{ rents: { [key: string]: IRent[] } }> = ({ rents }) => {
 									Object.values(context.dataset.data) as number[]
 								)
 								const opacity = +value / maxNum
-								return `rgba(94,107,232, ${opacity})`
+								return `rgba(110,119,219, ${opacity + 0.25})`
 							},
 						},
 					],

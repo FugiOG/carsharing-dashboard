@@ -3,7 +3,7 @@
 	align-items: center;
 	justify-content: center;
 	.form {
-		background-color: #fff;
+		background-color: var(--color-background);
 		margin-top: 3rem;
 		max-width: 800px;
 		width: 480px;
@@ -38,6 +38,7 @@
 					font-size: 0.75rem;
 					font-weight: 400;
 					line-height: 1rem;
+					color: var(--color-text-default);
 					text-transform: uppercase;
 					opacity: 0.8;
 					display: block;

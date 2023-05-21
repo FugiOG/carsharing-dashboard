@@ -24,6 +24,7 @@
 				top: 30%;
 				left: 30%;
 				font-size: 30px;
+				color: var(--color-text-default);
 				opacity: 0;
 				transition: all 0.2s ease-in;
 			}
@@ -31,7 +32,7 @@
 			&:hover {
 				img {
 					opacity: 0.2;
-					border: 3px dashed #000;
+					border: 3px dashed var(--color-text-default);
 				}
 				.plus {
 					opacity: 0.5;
