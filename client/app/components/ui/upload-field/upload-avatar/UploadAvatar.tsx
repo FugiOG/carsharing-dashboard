@@ -38,7 +38,7 @@ const UploadField: FC<IUploadField> = ({
 				<input
 					type="file"
 					accept=".jpg,.jpeg,.png"
-					onSubmit={uploadFile}
+					onChange={uploadFile}
 					className={styles.hidden}
 					ref={inputRef}
 				/>
