@@ -24,7 +24,7 @@ export const useUpload: TypeUpload = (onChange, folder) => {
 	)
 	const uploadFile = useCallback(
 		async (e: ChangeEvent<HTMLInputElement>) => {
-			if (e.target.value) return
+			if (e.target.value === '') return
 			setIsLoading(true)
 
 			const files = e.target.files
