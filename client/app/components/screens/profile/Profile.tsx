@@ -32,7 +32,7 @@ const Profile: FC = () => {
 		formState: { errors },
 		control,
 	} = useForm<IProfileInput>({
-		mode: 'onChange',
+		mode: 'onSubmit',
 	})
 	const { isLoading, onSubmit } = useProfile(setValue)
 	return (
