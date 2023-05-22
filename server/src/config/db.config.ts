@@ -14,5 +14,12 @@ export const getSequelizeConfig = async (
 		autoLoadModels: true,
 		synchronize: true,
 		logging: false,
+		ssl: true,
+		dialectOptions: {
+			ssl: {
+				require: true,
+				rejectUnauthorized: false,
+			},
+		},
 	}
 }
