@@ -53,7 +53,7 @@ export class AuthService {
 		const uploadFolder = `${path}/uploads/images`
 		await writeFile(`${uploadFolder}/${file.originalname}`, file.buffer)
 		const res: FileResponse = {
-			url: `/uploads/images/${file.originalname}`,
+			url: `/uploads/${file.originalname}`,
 			name: file.originalname,
 		}
 		return res

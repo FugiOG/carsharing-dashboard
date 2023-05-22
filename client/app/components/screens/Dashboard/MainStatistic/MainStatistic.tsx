@@ -44,7 +44,7 @@ const MainStatistic: FC = () => {
 					))}
 				</div>
 			) : (
-				<div>Stat not found</div>
+				<div className={styles.statErr}>Stat not found</div>
 			)}
 		</div>
 	)

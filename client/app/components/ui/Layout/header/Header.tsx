@@ -23,7 +23,7 @@ const Header: FC = () => {
 		<header className={styles.header}>
 			<Logo />
 			<div className={styles.wrapper}>
-				<DynamicTheme />
+				<DynamicTheme style={{ marginTop: '6px' }} />
 				{user ? (
 					<UserAvatar
 						title="dashboard"

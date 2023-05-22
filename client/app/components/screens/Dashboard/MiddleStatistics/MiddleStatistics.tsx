@@ -39,7 +39,7 @@ const MiddleStatistics: FC = () => {
 					<RentsChart rents={data.rentsByMonth} />
 				</div>
 			) : (
-				<div>Stat not found</div>
+				<div className={styles.statErr}>Stat not found</div>
 			)}
 		</div>
 	)
