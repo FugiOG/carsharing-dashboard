@@ -6,7 +6,7 @@ export const getSequelizeConfig = async (
 ): Promise<SequelizeModuleOptions> => {
 	return {
 		dialect: 'postgres',
-		host: 'localhost',
+		host: configService.get('DB_HOST'),
 		port: configService.get('DB_PORT'),
 		database: configService.get('DATABASE'),
 		username: configService.get('DB_USERNAME'),
