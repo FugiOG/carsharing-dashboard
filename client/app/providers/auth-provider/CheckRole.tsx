@@ -18,6 +18,10 @@ const CheckRole: FC<TypeComponentAuthFields> = ({
 	const router = useRouter()
 
 	const Children = () => <>{children}</>
+	if (!user) {
+		router.pathname !== '/auth' && router.replace('/auth')
+		return null
+	}
 	if (user?.isAdmin) return <Children />
 
 	if (isOnlyAdmin) {
@@ -28,10 +32,7 @@ const CheckRole: FC<TypeComponentAuthFields> = ({
 	const isUser = user && !user?.isAdmin
 
 	if (isUser && isOnlyUser) return <Children />
-	else {
-		router.pathname !== '/auth' && router.replace('/auth')
-		return null
-	}
+	return null
 }
 
 export default CheckRole

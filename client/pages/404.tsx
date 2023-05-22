@@ -1,7 +1,9 @@
 import { NextPage } from 'next'
 
+import NotFoundPage from '@/components/screens/NotFoundPage/NotFoundPage'
+
 const Page404: NextPage = () => {
-	return <div>404</div>
+	return <NotFoundPage />
 }
 
 export default Page404
