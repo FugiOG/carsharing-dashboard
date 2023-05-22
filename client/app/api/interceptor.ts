@@ -2,7 +2,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 
 export const API_URL = `${process.env.APP_URL}/api`
-export const APP_SERVER_URL = process.env.APP_SERVER_URL
+export const APP_SERVER_URL = `${process.env.APP_SERVER_URL}/api`
 const IS_PRODUCTION = process.env.APP_ENV === 'production'
 export const getContentType = () => {
 	return {
