@@ -11,6 +11,8 @@ import UploadField from '@/components/ui/upload-field/UploadField'
 // import formStyles from '@/ui/form-elements/admin-form.module.scss'
 import Meta from '@/utils/meta/Meta'
 
+import { validEmail } from '../../auth/auth.constants'
+
 import { Cities } from './Cities'
 import styles from './UserEdit.module.scss'
 import { useUserEdit } from './useUserEdit'
@@ -49,6 +51,10 @@ const UserEdit: FC = () => {
 									<Field
 										{...register('email', {
 											required: 'Email is required!',
+											pattern: {
+												value: validEmail,
+												message: 'Please enter a valid email addres',
+											},
 										})}
 										placeholder="Email"
 										error={errors.email}
@@ -69,21 +75,23 @@ const UserEdit: FC = () => {
 								</label>
 							</div>
 							<div className={styles.controllers}>
-								<Controller
-									control={control}
-									name="city"
-									render={({ field, fieldState: { error } }) => (
-										<DynamicSelect
-											field={field}
-											options={Cities || []}
-											error={error}
-											placeholder="City"
-										/>
-									)}
-									rules={{
-										required: 'Please select at least one city!',
-									}}
-								/>
+								<div className={styles.city}>
+									<Controller
+										control={control}
+										name="city"
+										render={({ field, fieldState: { error } }) => (
+											<DynamicSelect
+												field={field}
+												options={Cities || []}
+												error={error}
+												placeholder="City"
+											/>
+										)}
+										rules={{
+											required: 'Please select at least one city!',
+										}}
+									/>
+								</div>
 								<Controller
 									control={control}
 									name="isAdmin"

@@ -41,10 +41,10 @@ const RentEdit: FC = () => {
 			<Meta title="Edit rent" />
 			<Heading title="Edit rent" />
 			<div className={styles['form-wrapper']}>
-				<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-					{isLoading ? (
-						<SkeletonLoader count={3} />
-					) : (
+				{isLoading ? (
+					<SkeletonLoader count={3} />
+				) : (
+					<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
 						<>
 							<div className={styles.fields}>
 								<label>
@@ -54,6 +54,7 @@ const RentEdit: FC = () => {
 											required: 'Cost is required!',
 										})}
 										placeholder="Cost"
+										type="number"
 										error={errors.cost}
 									/>
 								</label>
@@ -133,8 +134,8 @@ const RentEdit: FC = () => {
 							</div>
 							<Button className={styles.updateBtn}>Update</Button>
 						</>
-					)}
-				</form>
+					</form>
+				)}
 			</div>
 		</>
 	)

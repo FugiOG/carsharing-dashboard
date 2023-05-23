@@ -20,6 +20,17 @@
 			color: var(--color-text-secondary);
 			// color: #797979;
 		}
+		/* Chrome, Safari, Edge, Opera */
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		/* Firefox */
+		&[type='number'] {
+			-moz-appearance: textfield;
+		}
 	}
 }
 

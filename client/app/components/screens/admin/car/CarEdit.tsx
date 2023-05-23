@@ -67,6 +67,7 @@ const CarEdit: FC = () => {
 										})}
 										placeholder="Full price"
 										error={errors.fullPrice}
+										type="number"
 									/>
 								</label>
 
@@ -77,6 +78,7 @@ const CarEdit: FC = () => {
 											required: 'Rental price is required!',
 										})}
 										placeholder="Rental price"
+										type="number"
 										error={errors.rentalPrice}
 									/>
 								</label>

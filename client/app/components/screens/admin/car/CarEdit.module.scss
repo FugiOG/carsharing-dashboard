@@ -6,6 +6,8 @@
 		background-color: var(--color-background);
 		margin-top: 3rem;
 		max-width: 720px;
+		width: 720px;
+		min-height: 356px;
 		padding: 40px 30px;
 		border-radius: 10px;
 		display: flex;
@@ -16,6 +18,7 @@
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
+			min-height: 215px;
 			justify-content: space-between;
 			> div {
 				width: 48%;

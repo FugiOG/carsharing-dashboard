@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 import Button from '@/components/ui/Button/Button'
@@ -31,18 +31,23 @@ const Profile: FC = () => {
 		setValue,
 		formState: { errors },
 		control,
+		reset,
 	} = useForm<IProfileInput>({
-		mode: 'onSubmit',
+		mode: 'onChange',
 	})
 	const { isLoading, onSubmit } = useProfile(setValue)
+	useEffect(() => {
+		console.log('form mount')
+		return () => console.log('form UNmount')
+	}, [])
 	return (
 		<>
 			<Meta title="Edit profile" />
-			<motion.div {...FADE_IN(0.5, 1, 0.2)} className={styles['form-wrapper']}>
-				<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-					{isLoading ? (
-						<SkeletonLoader count={1} />
-					) : (
+			<div className={styles['form-wrapper']}>
+				{isLoading ? (
+					<SkeletonLoader count={1} />
+				) : (
+					<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
 						<>
 							<Controller
 								control={control}
@@ -126,9 +131,9 @@ const Profile: FC = () => {
 
 							<Button className={styles.updateBtn}>Update</Button>
 						</>
-					)}
-				</form>
-			</motion.div>
+					</form>
+				)}
+			</div>
 		</>
 	)
 }
